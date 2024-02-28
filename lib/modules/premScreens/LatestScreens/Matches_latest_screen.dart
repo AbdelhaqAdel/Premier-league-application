@@ -78,25 +78,22 @@ class _LatestState extends State<LatestMatches> {
 
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Stack(
-                          children: [
+                        child:
                             Container(
                               decoration: BoxDecoration(
 
                                 borderRadius: BorderRadius.circular(7),
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                //mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
+                              child:
                                  Text(
                                       'Matchs Week time ',
                                       style: Theme.of(context).textTheme.bodyLarge,
                                     ),
-
+                            ),),
                                    Container(
-                                      height: 500,
-                                      width: 380,
+                                     padding: const EdgeInsets.all(15.0),
+                                    height: 800,
+                                      width: double.infinity,
                                       child: ConditionalBuilder(
                                         condition: matchesTime.length > 0,
                                         builder: (context) =>  ListView.separated(
@@ -129,17 +126,12 @@ class _LatestState extends State<LatestMatches> {
                                  //      ),
                                  //    ),
 
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 60,
-                      ),
 
-                    ],
+
+
+
+
+                    ]
                   ),
                 ),
               ),

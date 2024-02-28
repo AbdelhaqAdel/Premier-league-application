@@ -96,14 +96,8 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
                             Container(
                               height: 480,
                               //width: double.infinity,
-                              decoration: BoxDecoration(
-                                  // color:  HexColor('#f0e4e4'),
-                                  // borderRadius: BorderRadius.circular(7),
-                                  ),
-                              child: Container(
-                                //height: 150,
+
                                 child: ListView.separated(
-                                    //scrollDirection: Axis.horizontal,
                                     physics: BouncingScrollPhysics(),
                                     itemBuilder: (context, index) =>
                                         buildArticleItem(
@@ -111,8 +105,8 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
                                     separatorBuilder: (context, index) =>
                                         SizedBox(height: 10,),
                                     itemCount: newslist.length),
-                              ),
-                            ),
+                              )
+
                           ],
                         ),
                       ),

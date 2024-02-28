@@ -131,6 +131,7 @@ class Stats extends StatelessWidget {
                               Expanded(
                                 child: GestureDetector(
                                   onTap:(){
+                                    cubit.getMatchesTimeData();
                                     NavigateTo(context,AssitsScreen());
                                   } ,
                                   child: Container(

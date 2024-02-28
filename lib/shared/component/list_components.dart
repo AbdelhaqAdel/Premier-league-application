@@ -24,39 +24,36 @@ Widget buildArticleItem(Map newsList, context) => GestureDetector(
           filter: ImageFilter.blur(
               sigmaX: 30, sigmaY: 30, tileMode: TileMode.clamp),
           child: Container(
-            height: 330,
+          //  height: 350,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white.withOpacity(.2),
-              // border: Border.all(
-              //   color: Colors.black,
-              //   width: 1.5,
-              //   style: BorderStyle.solid,
-              // ),
             ),
             child: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(0.0),
-                  child: Container(
-                    width: 360,
-                    height: 240,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      // borderRadius: BorderRadius.circular(15),
-                      image: DecorationImage(
-                        image: NetworkImage('${newsList['image']}'),
-                        fit: BoxFit.cover,
-                        // image: NetworkImage('${article['urlToImage']}'),
+                    child: Container(
+                      height: 330,
+
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        // borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                          image: NetworkImage('${newsList['image']}'),
+                          fit: BoxFit.cover,
+                          // image: NetworkImage('${article['urlToImage']}'),
+                        ),
                       ),
                     ),
-                  ),
+
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.only(top: 14.0, left: 22, bottom: 10),
                   child: Container(
-                    height: 50,
+                  //  height: 80,
                     width: double.infinity,
                     child: Column(
                       //mainAxisAli8gnment: MainAxisAlignment.start,
@@ -615,7 +612,7 @@ Widget buildVideosItem(Map VideoList, context, int index) => Padding(
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 14.0, left: 22, bottom: 10),
+              padding: const EdgeInsets.only(top: 14.0, left: 22, bottom: 10,right: 5),
               child: Container(
                 height: 60,
                 width: double.infinity,
@@ -632,6 +629,7 @@ Widget buildVideosItem(Map VideoList, context, int index) => Padding(
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
+                    Spacer(),
                     // SizedBox(width: 225,),
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
@@ -813,7 +811,6 @@ Widget BuildLeagueTable(StandingsModel model1, context) => Padding(
     );
 
 Widget AssistsBuildItem(assistsModel model2, context, int index) => Container(
-      height: 40,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Row(
@@ -827,7 +824,7 @@ Widget AssistsBuildItem(assistsModel model2, context, int index) => Container(
               child: Text(
                 '${index}',
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -838,7 +835,7 @@ Widget AssistsBuildItem(assistsModel model2, context, int index) => Container(
                 '${model2.player?.name}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -847,7 +844,7 @@ Widget AssistsBuildItem(assistsModel model2, context, int index) => Container(
               child: Text(
                 '${model2.statistics?[0].team?.name} ',
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -859,7 +856,8 @@ Widget AssistsBuildItem(assistsModel model2, context, int index) => Container(
               child: Text(
                 '${model2.statistics?[0].goals?.assists} ',
                 style:
-                    TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                    TextStyle(                  color: Colors.black,
+                         fontWeight: FontWeight.bold),
               ),
             ),
           ],
@@ -868,7 +866,6 @@ Widget AssistsBuildItem(assistsModel model2, context, int index) => Container(
     );
 
 Widget GoalsTeamsBuildItem(model, context) => Container(
-      height: 35,
       child: Row(
         
         children: [

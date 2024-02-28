@@ -168,15 +168,15 @@ class PremCubitCubit extends Cubit<PremCubitState> {
       EndPoint: MATCHSTIME,
     ).then((value) {
       if(value.statusCode==200){
-
+print(value.data);
         List Json = value.data['response'];
 
         for (var element in Json) {
           matchsTime.add(MatchTimeModel.fromJson(element));
         }
-        // for(var ss in matchsTime) {
-        //   print(ss?.date.toString());
-        // }
+        for(var ss in matchsTime) {
+          print(ss?.date.toString());
+        }
         emit(MatchsTimeSuccessState(matchsTime));
       }}).catchError((onError){
       print(onError.toString());
@@ -219,7 +219,6 @@ class PremCubitCubit extends Cubit<PremCubitState> {
 
         for (var element in Json) {
           standings.add(StandingsModel.fromJson(element));
-
         }
         emit(premStatesSuccessState(standings));
       }}).catchError((onError){

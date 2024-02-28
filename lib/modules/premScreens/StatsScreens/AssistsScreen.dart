@@ -2,6 +2,7 @@ import 'dart:ffi';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/model/PlayerAssistsModel.dart';
@@ -22,6 +23,7 @@ class AssitsScreen extends StatelessWidget {
             return Scaffold(
               backgroundColor: Colors.transparent,
               appBar: AppBar(
+                
                 title: Text('Assists'),
               ),
               body: Container(
@@ -33,7 +35,6 @@ class AssitsScreen extends StatelessWidget {
 
                     children: [
                       Container(
-                        height: 190,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: HexColor('#570861'),
@@ -84,9 +85,7 @@ class AssitsScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              width: 65,
-                            ),
+                           Spacer(),
                             Container(
                               height: 200,
                               width: 150,
@@ -113,7 +112,7 @@ class AssitsScreen extends StatelessWidget {
                                 Text(
                                   'Pos',
                                   style: TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.grey[800],
                                   ),
                                 ),
                                 SizedBox(
@@ -122,7 +121,7 @@ class AssitsScreen extends StatelessWidget {
                                 Text(
                                   'Player',
                                   style: TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.grey[800],
                                   ),
                                 ),
                                 SizedBox(
@@ -131,7 +130,7 @@ class AssitsScreen extends StatelessWidget {
                                 Text(
                                   'Team',
                                   style: TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.grey[800],
                                   ),
                                 ),
                                 SizedBox(
@@ -140,7 +139,7 @@ class AssitsScreen extends StatelessWidget {
                                 Text(
                                   'Assists',
                                   style: TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.grey[800],
                                   ),
                                 ),
                               ],
@@ -148,18 +147,20 @@ class AssitsScreen extends StatelessWidget {
                           ),
                         ),
 
-                      Container(
-                        height:430,
-                        child: ConditionalBuilder(
-                          condition: Assistslist.length > 0,
-                          builder: (context) => ListView.separated(
-                              physics: BouncingScrollPhysics(),
-                              itemBuilder: (context, index) => AssistsBuildItem(
-                                  Assistslist[index+1] as assistsModel, context,index+2),
-                              separatorBuilder: (context, index) => myDevider(),
-                              itemCount: Assistslist.length-1),
-                          fallback: (context) =>
-                              Center(child: CircularProgressIndicator()),
+                      Expanded(
+                        child: Container(
+                          height:430,
+                          child: ConditionalBuilder(
+                            condition: Assistslist.length > 0,
+                            builder: (context) => ListView.separated(
+                                physics: BouncingScrollPhysics(),
+                                itemBuilder: (context, index) => AssistsBuildItem(
+                                    Assistslist[index+1] as assistsModel, context,index+2),
+                                separatorBuilder: (context, index) => myDevider(),
+                                itemCount: Assistslist.length-1),
+                            fallback: (context) =>
+                                Center(child: CircularProgressIndicator()),
+                          ),
                         ),
                       ),
                     ],

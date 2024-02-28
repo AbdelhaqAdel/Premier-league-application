@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/model/ScorersModel.dart';
@@ -32,7 +33,6 @@ class ScorersScreen extends StatelessWidget {
 
                       children: [
                         Container(
-                          height: 190,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: HexColor('#570861'),
@@ -83,9 +83,7 @@ class ScorersScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              SizedBox(
-                                width: 40,
-                              ),
+                          Spacer(),
                               Container(
                                 height: 200,
                                 width: 200,
@@ -146,19 +144,20 @@ class ScorersScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-
-                          height: 430,
-                          child: ConditionalBuilder(
-                            condition: Scorerslist.length > 0,
-                            builder: (context) => ListView.separated(
-                                physics: BouncingScrollPhysics(),
-                                itemBuilder: (context, index) => ScorersBuildItem(
-                                    Scorerslist[index+1], context,index+2),
-                                separatorBuilder: (context, index) => myDevider(),
-                                itemCount: Scorerslist.length-1),
-                            fallback: (context) =>
-                                Center(child: CircularProgressIndicator()),
+                        Expanded(
+                          child: Container(
+                          
+                            child: ConditionalBuilder(
+                              condition: Scorerslist.length > 0,
+                              builder: (context) => ListView.separated(
+                                  physics: BouncingScrollPhysics(),
+                                  itemBuilder: (context, index) => ScorersBuildItem(
+                                      Scorerslist[index+1], context,index+2),
+                                  separatorBuilder: (context, index) => myDevider(),
+                                  itemCount: Scorerslist.length-1),
+                              fallback: (context) =>
+                                  Center(child: CircularProgressIndicator()),
+                            ),
                           ),
                         ),
                       ],
