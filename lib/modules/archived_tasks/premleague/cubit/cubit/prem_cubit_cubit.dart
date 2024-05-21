@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:meta/meta.dart';
-import 'package:premleague/modules/premScreens/LatestScreens/LatestScreen.dart';
+import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreen.dart';
 import 'package:premleague/modules/premScreens/ScorePage/NewsScreen.dart';
 import 'package:premleague/modules/premScreens/StatsScreens/StatsScreen.dart';
 import 'package:premleague/modules/premScreens/Teams_news_screen/Teams_news_screen.dart';

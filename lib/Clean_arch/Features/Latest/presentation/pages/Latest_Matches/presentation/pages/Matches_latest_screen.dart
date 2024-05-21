@@ -10,13 +10,13 @@ import 'package:premleague/modules/premScreens/teamsNews/LatestScreens/MatchDay.
 import 'package:premleague/modules/premScreens/teamsNews/LatestScreens/MatchDayResult.dart';
 import 'package:premleague/modules/premScreens/video.dart';
 import 'package:premleague/shared/component/components.dart';
-import '../../../model/MatchesResultsModel.dart';
-import '../../../model/MatchsTimeModel.dart';
-import '../../../shared/component/list_components.dart';
-import '../../archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import '../ScorePage/NewsScreen.dart';
-import '../StatsScreens/StatsScreen.dart';
-import '../video.dart';
+import '../../../../../../../../model/MatchesResultsModel.dart';
+import '../../../../../../../../model/MatchsTimeModel.dart';
+import '../../../../../../../../shared/component/list_components.dart';
+import '../../../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
+import '../../../../../../../../modules/premScreens/ScorePage/NewsScreen.dart';
+import '../../../../../../../../modules/premScreens/StatsScreens/StatsScreen.dart';
+import '../../../../../../../../modules/premScreens/video.dart';
 
 class LatestMatches extends StatefulWidget {
   const LatestMatches({super.key});
