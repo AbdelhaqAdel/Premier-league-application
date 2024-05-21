@@ -2,15 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../ScorePage/NewsScreen.dart';
-import '../StatsScreens/StatsScreen.dart';
-import 'Matches_latest_screen.dart';
-import 'News_LatestScreen.dart';
+import '../../../../../modules/premScreens/ScorePage/NewsScreen.dart';
+import '../../../../../modules/premScreens/StatsScreens/StatsScreen.dart';
+import 'Latest_Matches/presentation/pages/Matches_latest_screen.dart';
+import 'Latest_News/presentation/pages/News_LatestScreen.dart';
 class test extends StatefulWidget {
   @override
   State<test> createState() => _testState();
 }
-
+//-----------------change test ---------------
 class _testState extends State<test> {
   int navbar=1;
   List Screen2=[
