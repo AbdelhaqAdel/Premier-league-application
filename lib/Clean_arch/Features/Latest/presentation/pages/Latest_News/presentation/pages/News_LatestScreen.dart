@@ -5,7 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 import '../../../../../../../../shared/component/components.dart';
 import '../../../../../../../../shared/component/list_components.dart';
 import '../../../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import '../../../../../../../../modules/premScreens/video.dart';
+import 'video.dart';
 
 class LatestNewsScreen extends StatefulWidget {
   const LatestNewsScreen({Key? key}) : super(key: key);

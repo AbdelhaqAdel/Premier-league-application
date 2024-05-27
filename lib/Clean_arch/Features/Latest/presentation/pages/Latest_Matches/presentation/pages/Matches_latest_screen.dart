@@ -6,17 +6,16 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/modules/premScreens/teamsNews/LatestScreens/MatchDay.dart';
-import 'package:premleague/modules/premScreens/teamsNews/LatestScreens/MatchDayResult.dart';
-import 'package:premleague/modules/premScreens/video.dart';
+import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreens/MatchDay.dart';
+import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/Latest_News/presentation/pages/video.dart';
 import 'package:premleague/shared/component/components.dart';
 import '../../../../../../../../model/MatchesResultsModel.dart';
 import '../../../../../../../../model/MatchsTimeModel.dart';
 import '../../../../../../../../shared/component/list_components.dart';
 import '../../../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import '../../../../../../../../modules/premScreens/ScorePage/NewsScreen.dart';
-import '../../../../../../../../modules/premScreens/StatsScreens/StatsScreen.dart';
-import '../../../../../../../../modules/premScreens/video.dart';
+import '../../../../../../Score/presentation/pages/Score.dart';
+import '../../../../../../Stats/presentation/pages/StatsScreen.dart';
+import '../../../Latest_News/presentation/pages/video.dart';
 
 class LatestMatches extends StatefulWidget {
   const LatestMatches({super.key});

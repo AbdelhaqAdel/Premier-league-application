@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
+import '../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 
-class TeamsNews extends StatelessWidget {
-  const TeamsNews({Key? key}) : super(key: key);
+class FavTeam extends StatelessWidget {
+  const FavTeam({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../../../../../modules/premScreens/ScorePage/NewsScreen.dart';
-import '../../../../../modules/premScreens/StatsScreens/StatsScreen.dart';
+import '../../../Score/presentation/pages/Score.dart';
+import '../../../Stats/presentation/pages/StatsScreen.dart';
 import 'Latest_Matches/presentation/pages/Matches_latest_screen.dart';
 import 'Latest_News/presentation/pages/News_LatestScreen.dart';
 class test extends StatefulWidget {
@@ -189,7 +189,7 @@ class _testState extends State<test> {
 // import 'package:premleague/shared/cubit/testcubit/states.dart';
 // import '../../../model/MatchsTimeModel.dart';
 // import '../../../shared/component/list_components.dart';
-// import '../NewsScreen.dart';
+// import '../Score.dart';
 // import '../StatsScreens/AssistsScreen.dart';
 // import '../StatsScreens/StatsScreen.dart';
 // import '../video.dart';
