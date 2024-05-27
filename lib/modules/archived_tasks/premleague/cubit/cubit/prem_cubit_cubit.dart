@@ -5,10 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:meta/meta.dart';
 import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreen.dart';
-import 'package:premleague/modules/premScreens/ScorePage/NewsScreen.dart';
-import 'package:premleague/modules/premScreens/StatsScreens/StatsScreen.dart';
-import 'package:premleague/modules/premScreens/Teams_news_screen/Teams_news_screen.dart';
-import 'package:premleague/modules/premScreens/settingsScreen.dart';
+import 'package:premleague/Clean_arch/Features/Score/presentation/pages/Score.dart';
+import 'package:premleague/Clean_arch/Features/Stats/presentation/pages/StatsScreen.dart';
+import 'package:premleague/Clean_arch/Features/FavTeam/presentation/pages/Fav_Teams.dart';
+import 'package:premleague/Clean_arch/Features/Settings/presentation/pages/settingsScreen.dart';
 import '../../../../../model/CardsModel.dart';
 import '../../../../../model/MatchesResultsModel.dart';
 import '../../../../../model/MatchsTimeModel.dart';
@@ -60,7 +60,7 @@ class PremCubitCubit extends Cubit<PremCubitState> {
   ];
   List<Widget>Screens=[
     test(),
-    TeamsNews(),
+    FavTeam(),
     SoccerMatch(),
     Stats(),
     settingss(),

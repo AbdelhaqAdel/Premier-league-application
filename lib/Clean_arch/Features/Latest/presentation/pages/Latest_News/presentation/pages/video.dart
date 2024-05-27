@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
+import '../../../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key,int? index}) : super(key: key);

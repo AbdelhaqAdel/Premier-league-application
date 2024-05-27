@@ -8,8 +8,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/model/ScorersModel.dart';
 
 
-import '../../../shared/component/components.dart';
-import '../../../shared/component/list_components.dart';
+import '../../../../../../shared/component/components.dart';
+import '../../../../../../shared/component/list_components.dart';
 
 class TeamsGoal extends StatelessWidget {
   // const ScorersScreen({Key? key}) : super(key: key);

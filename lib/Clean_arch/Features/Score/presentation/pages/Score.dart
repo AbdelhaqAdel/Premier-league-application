@@ -7,17 +7,16 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/modules/premScreens/teamsNews/LatestScreens/MatchDay.dart';
-import 'package:premleague/modules/premScreens/teamsNews/LatestScreens/MatchDayResult.dart';
-import 'package:premleague/modules/premScreens/video.dart';
+import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreens/MatchDay.dart';
+import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/Latest_News/presentation/pages/video.dart';
 import 'package:premleague/shared/component/components.dart';
-import '../../../model/MatchesResultsModel.dart';
-import '../../../model/MatchsTimeModel.dart';
-import '../../../shared/component/list_components.dart';
-import '../../archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import '../ScorePage/NewsScreen.dart';
-import '../StatsScreens/StatsScreen.dart';
-import '../video.dart';
+import '../../../../../model/MatchesResultsModel.dart';
+import '../../../../../model/MatchsTimeModel.dart';
+import '../../../../../shared/component/list_components.dart';
+import '../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
+import 'Score.dart';
+import '../../../Stats/presentation/pages/StatsScreen.dart';
+import '../../../Latest/presentation/pages/Latest_News/presentation/pages/video.dart';
 
 class SoccerMatch extends StatelessWidget {
   const SoccerMatch({Key? key}) : super(key: key);
@@ -76,9 +75,9 @@ class SoccerMatch extends StatelessWidget {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 4,),
-                                              Padding(
-                                                padding: const EdgeInsets.only(bottom: 6.0),
+                                              const SizedBox(width: 4,),
+                                              const Padding(
+                                                padding: EdgeInsets.only(bottom: 6.0),
                                                 child: Icon(Icons.album_outlined,
                                                 color: Colors.green,
                                                   size: 13,
@@ -88,7 +87,7 @@ class SoccerMatch extends StatelessWidget {
                                             ],
                                           ),
                                         ),
-                                        SizedBox(width: 5,),
+                                        const SizedBox(width: 5,),
                                         // Text('Score',
                                         //   style: TextStyle(
                                         //     color: Colors.grey[300],
@@ -104,8 +103,7 @@ class SoccerMatch extends StatelessWidget {
                                       alignment: Alignment.topCenter,
                                       children:[
 
-                                        Container(
-
+                                        SizedBox(
                                           height: 217,
                                           width: double.infinity-40,
                                           child: Container(
@@ -124,7 +122,6 @@ class SoccerMatch extends StatelessWidget {
 
                                         ),
                                         Container(
-
                                           height: 210,
                                           width: double.infinity-20,
                                           child: Container(

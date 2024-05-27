@@ -8,12 +8,12 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/model/PlayerAssistsModel.dart';
 import 'package:premleague/model/StandingsModel.dart';
 import 'package:premleague/shared/component/components.dart';
+import '../../Clean_arch/Features/Latest/presentation/pages/LatestScreens/AllnewsScreen.dart';
 import '../../model/CardsModel.dart';
 import '../../model/MatchesResultsModel.dart';
 import '../../model/MatchsTimeModel.dart';
 import '../../model/ScorersModel.dart';
-import '../../modules/premScreens/video.dart';
-import '../../modules/premScreens/teamsNews/LatestScreens/AllnewsScreen.dart';
+import '../../Clean_arch/Features/Latest/presentation/pages/Latest_News/presentation/pages/video.dart';
 
 Widget buildArticleItem(Map newsList, context) => GestureDetector(
       onTap: () {

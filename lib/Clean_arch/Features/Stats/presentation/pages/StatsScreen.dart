@@ -6,12 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import 'package:premleague/model/StandingsModel.dart';
-import '../../../shared/component/components.dart';
-import '../../../shared/component/list_components.dart';
-import 'AssistsScreen.dart';
-import 'CleanSheetScreen.dart';
-import 'ScorersScreen.dart';
-import 'TeamsGoalsScreen.dart';
+import '../../../../../shared/component/components.dart';
+import '../../../../../shared/component/list_components.dart';
+import 'StatsScreens/AssistsScreen.dart';
+import 'StatsScreens/CleanSheetScreen.dart';
+import 'StatsScreens/ScorersScreen.dart';
+import 'StatsScreens/TeamsGoalsScreen.dart';
 class Stats extends StatelessWidget {
   const Stats({super.key});
 
