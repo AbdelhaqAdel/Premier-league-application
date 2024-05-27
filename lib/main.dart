@@ -12,11 +12,15 @@ import 'package:premleague/shared/styles/colors.dart';
 import 'package:premleague/shared/styles/thems.dart';
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 
+import 'Clean_arch/Config/Routes/app_routes.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
    DioHelper.init();
-  //Token =CacheHelper.getAllData(key: 'token');
+
+//   await CacheHelper.init();
+//  Token =CacheHelper.getAllData(key: 'token');
  // bool? isDark = CacheHelper.getAllData(key: 'isDark');
 
  // print('token from main is ${Token}' );
@@ -47,6 +51,11 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
+
+            initialRoute:Routes.initialRoute,
+            routes: allRoutes,
+
+
             theme: ThemeData(
               // scaffoldBackgroundColor: Colors.black,
               primarySwatch: defultColor,
