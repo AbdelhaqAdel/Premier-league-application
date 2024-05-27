@@ -332,27 +332,6 @@ print(value.data);
     suffix=ispassowrdShown?Icons.visibility_off_outlined:Icons.visibility_outlined;
     emit(shopLoginIsbasswordState());
   }
-  // shopLoginModel ?userData;
-  // void GetUserData({
-  //   required String email,
-  //   required String password,
-  // }){
-  //   emit(shopLoginLoadingState());
-  //   DioHelper3.PostData(
-  //       url: LOGIN,
-  //       data:{
-  //         'email':email,
-  //         'password':password,
-  //       }).then((value) {
-  //     loginModel= shopLoginModel.fromJson(value.data);
-  //     emit(shopLoginSuccessState(loginModel!));
-  //     print(value.data);
-  //   }).catchError((Error){
-  //     print(Error.toString());
-  //     emit(shopLoginErrorState(Error.toString()));
-  //   });
-  // }
-
 
   UserProfileModel ? getuserData;
   void GetUserProfile({

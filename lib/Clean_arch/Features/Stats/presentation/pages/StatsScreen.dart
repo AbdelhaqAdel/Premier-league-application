@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:premleague/Clean_arch/Config/Routes/app_routes.dart';
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import 'package:premleague/model/StandingsModel.dart';
 import '../../../../../shared/component/components.dart';
@@ -72,7 +73,11 @@ class Stats extends StatelessWidget {
                               Expanded(
                                 child: GestureDetector(
                                   onTap:(){
-                                    NavigateTo(context,ScorersScreen());
+                                   Navigator.pushNamed(context,
+                                        Routes.scorer
+                                        //AppRoutes.onGenerateRoute(Routes.Scorers as RouteSettings);
+                                   );
+                                    //   NavigateTo(context,ScorersScreen());
                                   } ,
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -132,8 +137,10 @@ class Stats extends StatelessWidget {
                                 child: GestureDetector(
                                   onTap:(){
                                     cubit.getMatchesTimeData();
-                                    NavigateTo(context,AssitsScreen());
-                                  } ,
+                                    Navigator.pushNamed(context,
+                                        Routes.assist
+                                    );
+                                    } ,
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: HexColor('#570861'),
@@ -198,8 +205,10 @@ class Stats extends StatelessWidget {
                               Expanded(
                                 child: GestureDetector(
                                   onTap: () {
-                                    NavigateTo(context, TeamsGoal());
-                                  },
+                                    Navigator.pushNamed(context,
+                                        Routes.goals
+                                    );
+                                    },
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: HexColor('#570861'),
@@ -257,8 +266,10 @@ class Stats extends StatelessWidget {
                               Expanded(
                                 child: GestureDetector(
                                   onTap: () {
-                                    NavigateTo(context, CleanSheet());
-                                  },
+                                    Navigator.pushNamed(context,
+                                        Routes.cards
+                                    );
+                                    },
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: HexColor('#570861'),
