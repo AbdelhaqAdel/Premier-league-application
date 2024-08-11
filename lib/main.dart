@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/layout/premleaguePro/premier.dart';
-import 'package:premleague/modules/On_boarding/onBoardingScreen.dart';
-import 'package:premleague/shared/component/Constants.dart';
-import 'package:premleague/shared/component/bloc_observer.dart';
-import 'package:premleague/shared/network/local/cache_helper.dart';
-import 'package:premleague/shared/network/remote/DioHelper.dart';
-import 'package:premleague/shared/styles/colors.dart';
-import 'package:premleague/shared/styles/thems.dart';
+import 'package:premleague/Clean_arch/premier.dart';
+import 'package:premleague/Clean_arch/Features/on_boarding/presentation/pages/onBoardingScreen.dart';
+import 'package:premleague/Clean_arch/Core/Utils/Constants.dart';
+import 'package:premleague/bloc_observer.dart';
+import 'package:premleague/Clean_arch/Core/local/cache_helper.dart';
+import 'package:premleague/Clean_arch/Core/remote/DioHelper.dart';
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 
 import 'Clean_arch/Config/Routes/app_routes.dart';
+import 'Clean_arch/Config/Theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,59 +45,14 @@ class MyApp extends StatelessWidget {
         ..getCardsData()
         ..getScorrersData()
         ..getAssistsData(),
-
       child: BlocConsumer<PremCubitCubit, PremCubitState>(
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
-
             initialRoute:Routes.initialRoute,
             routes: allRoutes,
-
-
-            theme: ThemeData(
-              // scaffoldBackgroundColor: Colors.black,
-              primarySwatch: defultColor,
-              floatingActionButtonTheme: FloatingActionButtonThemeData(
-                backgroundColor: defultColor,
-              ),
-              appBarTheme: AppBarTheme(
-                titleSpacing: 20,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Colors.transparent,
-                  statusBarIconBrightness: Brightness.light,
-                ),
-                backgroundColor: HexColor('333739'),
-                elevation: 0.0,
-                iconTheme: IconThemeData(
-                  color: Colors.white,
-                ),
-                titleTextStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                //type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.purpleAccent,
-                unselectedItemColor: Colors.grey[300],
-                // elevation: 30,
-                backgroundColor: Colors.transparent,
-              ),
-              textTheme: TextTheme(
-                bodyText1: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            theme:appTheme,
             debugShowCheckedModeBanner: false,
-            //LightTheme,
-            // darkTheme:darkTheme,
-            //themeMode:ThemeMode.light,
-            /*appcubit.get(context).isDark?ThemeMode.dark :*/
             home: OnBoarding(),
           );
         },

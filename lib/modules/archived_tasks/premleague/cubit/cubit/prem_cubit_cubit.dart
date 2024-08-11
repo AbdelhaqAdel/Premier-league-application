@@ -5,27 +5,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:meta/meta.dart';
 import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreen.dart';
-import 'package:premleague/Clean_arch/Features/Score/presentation/pages/Score.dart';
 import 'package:premleague/Clean_arch/Features/Stats/presentation/pages/StatsScreen.dart';
 import 'package:premleague/Clean_arch/Features/FavTeam/presentation/pages/Fav_Teams.dart';
 import 'package:premleague/Clean_arch/Features/Settings/presentation/pages/settingsScreen.dart';
-import '../../../../../model/CardsModel.dart';
-import '../../../../../model/MatchesResultsModel.dart';
-import '../../../../../model/MatchsTimeModel.dart';
-import '../../../../../model/PlayerAssistsModel.dart';
-import '../../../../../model/ScorersModel.dart';
-import '../../../../../model/StandingsModel.dart';
-import '../../../../../model/user/shop_model/LoginShopModel.dart';
-import '../../../../../model/user/shop_model/RegisterModel.dart';
-import '../../../../../model/user/shop_model/SearchModel/SearchModel.dart';
-import '../../../../../shared/component/Constants.dart';
-import '../../../../../shared/network/endPoints.dart';
-import '../../../../../shared/network/remote/DioHelper.dart';
+import '../../../../../Clean_arch/Features/Live_Score/presentation/pages/Score.dart';
+import '../../../../../Clean_arch/Features/Stats/data/models/CardsModel.dart';
+import '../../../../../Clean_arch/Features/Latest/data/remote/models/MatchesResultsModel.dart';
+import '../../../../../Clean_arch/Features/Latest/data/remote/models/MatchsTimeModel.dart';
+import '../../../../../Clean_arch/Features/Stats/data/models/PlayerAssistsModel.dart';
+import '../../../../../Clean_arch/Features/Stats/data/models/ScorersModel.dart';
+import '../../../../../Clean_arch/Features/Stats/data/models/StandingsModel.dart';
+import '../../../../../Clean_arch/Features/Login/data/models/LoginModel.dart';
+import '../../../../../Clean_arch/Features/Register/data/models/RegisterModel.dart';
+import '../../../../../Clean_arch/Core/Utils/Constants.dart';
+import '../../../../../Clean_arch/Core/remote/endPoints.dart';
+import '../../../../../Clean_arch/Core/remote/DioHelper.dart';
 part 'prem_cubit_state.dart';
 
 class PremCubitCubit extends Cubit<PremCubitState> {
   PremCubitCubit() : super(PremCubitInitial());
   static PremCubitCubit get(context) => BlocProvider.of(context);
+
   int currentIndex=0;
   int videoIndex=0;
   int imageindex=0;
@@ -175,7 +175,7 @@ print(value.data);
           matchsTime.add(MatchTimeModel.fromJson(element));
         }
         for(var ss in matchsTime) {
-          print(ss?.date.toString());
+          print(ss.date.toString());
         }
         emit(MatchsTimeSuccessState(matchsTime));
       }}).catchError((onError){
@@ -306,7 +306,7 @@ print(value.data);
     emit(isUserLoginState());
   }
 
-  shopLoginModel ?loginModel;
+  LoginModel ?loginModel;
   void UserLogin({
     required String email,
     required String password,
@@ -318,7 +318,7 @@ print(value.data);
           'email':email,
           'password':password,
         }).then((value) {
-      loginModel= shopLoginModel.fromJson(value.data);
+      loginModel= LoginModel.fromJson(value.data);
       emit(shopLoginSuccessState(loginModel!));
       print(value.data);
     }).catchError((Error){
@@ -409,28 +409,6 @@ print(value.data);
   }
 
   /*-------------------------------------*/
-  SearchModel? searchModel;
-
-  void SearchProduct({
-    required String Text,
-  }){
-    emit(shopSearchLoadingState());
-    DioHelper3.PostData(
-        token: Tokenn,
-        url: SEARCH,
-        data:{
-          'text':Text,
-        }).then((value) {
-      print('RegToken is from cubit in Search ${Tokenn}');
-      searchModel= SearchModel.fromJson(value.data);
-      print(value.data);
-
-      emit(shopSearchSuccessState(searchModel!));
-    }).catchError((Error){
-      print(Error.toString());
-      emit(shopSearchErrorState(Error.toString()));
-    });
-  }
 
 
 }

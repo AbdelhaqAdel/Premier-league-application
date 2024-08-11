@@ -6,12 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/model/CardsModel.dart';
-import 'package:premleague/model/ScorersModel.dart';
+import 'package:premleague/Clean_arch/Features/Stats/data/models/CardsModel.dart';
+import 'package:premleague/Clean_arch/Features/Stats/data/models/ScorersModel.dart';
 
-import '../../../../../../shared/component/components.dart';
+import '../../../../../Core/Utils/components.dart';
 import '../../../../../../shared/component/list_components.dart';
 import '../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
+import '../../widgets/stats_custom_widgets.dart';
 
 class CleanSheet extends StatelessWidget {
   @override
