@@ -68,7 +68,7 @@ class shopLoginInitialState extends PremCubitState {}
 class shopLoginLoadingState extends PremCubitState {}
 
 class shopLoginSuccessState extends PremCubitState {
-  final shopLoginModel loginmodel;
+  final LoginModel loginmodel;
 
   shopLoginSuccessState(this.loginmodel);
 
@@ -134,12 +134,6 @@ class shopUpdateErrorState extends PremCubitState {
 
 /*--------------------Search--------------------*/
 class shopSearchLoadingState extends PremCubitState {}
-
-class shopSearchSuccessState extends PremCubitState {
-  final SearchModel searchModel;
-
-  shopSearchSuccessState(this.searchModel);
-}
 
 class shopSearchErrorState extends PremCubitState {
   String? error;

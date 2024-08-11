@@ -1,15 +1,14 @@
 import 'dart:ffi';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/model/ScorersModel.dart';
-import '../../../../../../shared/component/components.dart';
+import 'package:premleague/Clean_arch/Features/Stats/data/models/ScorersModel.dart';
+import '../../../../../Core/Utils/components.dart';
 import '../../../../../../shared/component/list_components.dart';
 import '../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
+import '../../widgets/stats_custom_widgets.dart';
 class ScorersScreen extends StatelessWidget {
   const ScorersScreen({Key? key}) : super(key: key);
   @override
@@ -18,14 +17,14 @@ class ScorersScreen extends StatelessWidget {
             listener: (context, state) {},
             builder: (context, state) {
               PremCubitCubit cubit = PremCubitCubit.get(context);
-             // List Scorerslist=ScorersModel2.scorers;
-                List<ScorersModel> Scorerslist= PremCubitCubit.get(context).scorers;
+             // List scorersList=ScorersModel2.scorers;
+                List<ScorersModel>scorersList= PremCubitCubit.get(context).scorers;
               return Scaffold(
                 appBar: AppBar(
-                  title: Text('Players'),
+                  title: const Text('Players'),
                 ),
                 body: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
                     ),
                     child: Column(
@@ -38,13 +37,13 @@ class ScorersScreen extends StatelessWidget {
                             color: HexColor('#570861'),
                           ),
                           child: Row(
-                            children: [
+                            children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.all(15.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       '1',
                                       style: TextStyle(
                                         fontSize: 35,
@@ -59,20 +58,20 @@ class ScorersScreen extends StatelessWidget {
                                         color: Colors.grey[300],
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 6,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Manchester City',
                                       style: TextStyle(
                                         fontSize: 12,
                                         color: Colors.grey,
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 15,
                                     ),
-                                    Text(
+                                    const Text(
                                       '36',
                                       style: TextStyle(
                                         fontSize: 50,
@@ -83,13 +82,13 @@ class ScorersScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                          Spacer(),
+                          const Spacer(),
                               Container(
                                 height: 200,
                                 width: 200,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage(
                                         'assets/images/haland11.png'),
                                   ),
@@ -100,8 +99,8 @@ class ScorersScreen extends StatelessWidget {
                         ),
                         Container(
                           decoration: BoxDecoration(color: Colors.grey[200]),
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(5.0),
                             child: Row(
                               children: [
                                 SizedBox(
@@ -145,19 +144,16 @@ class ScorersScreen extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Container(
-                          
-                            child: ConditionalBuilder(
-                              condition: Scorerslist.length > 0,
-                              builder: (context) => ListView.separated(
-                                  physics: BouncingScrollPhysics(),
-                                  itemBuilder: (context, index) => ScorersBuildItem(
-                                      Scorerslist[index+1], context,index+2),
-                                  separatorBuilder: (context, index) => myDevider(),
-                                  itemCount: Scorerslist.length-1),
-                              fallback: (context) =>
-                                  Center(child: CircularProgressIndicator()),
-                            ),
+                          child: ConditionalBuilder(
+                            condition: scorersList.isNotEmpty,
+                            builder: (context) => ListView.separated(
+                                physics: const BouncingScrollPhysics(),
+                                itemBuilder: (context, index) => ScorersBuildItem(
+                                    scorersList[index+1], context,index+2),
+                                separatorBuilder: (context, index) => myDevider(),
+                                itemCount: scorersList.length-1),
+                            fallback: (context) =>
+                                const Center(child: CircularProgressIndicator()),
                           ),
                         ),
                       ],

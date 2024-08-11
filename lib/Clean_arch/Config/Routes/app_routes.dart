@@ -1,6 +1,6 @@
 
-import '../../../layout/premleaguePro/premier.dart';
-import '../../../modules/On_boarding/onBoardingScreen.dart';
+import '../../premier.dart';
+import '../../Features/on_boarding/presentation/pages/onBoardingScreen.dart';
 import '../../Features/Stats/presentation/pages/StatsScreens/AssistsScreen.dart';
 import '../../Features/Stats/presentation/pages/StatsScreens/CleanSheetScreen.dart';
 import '../../Features/Stats/presentation/pages/StatsScreens/ScorersScreen.dart';

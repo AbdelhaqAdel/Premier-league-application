@@ -5,14 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
-import 'package:premleague/modules/On_boarding/User_info/SelectFavTeamScreen.dart';
-import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/Latest_News/presentation/pages/video.dart';
-import 'package:premleague/shared/network/local/cache_helper.dart';
-import '../../../../../shared/component/Constants.dart';
-import '../../../../../modules/On_boarding/User_info/Profile/UserProfile.dart';
-import '../../../../../modules/On_boarding/User_info/Register/UserRegister.dart';
+import 'package:premleague/Clean_arch/Features/Register/presentation/pages/SelectFavTeamScreen.dart';
+import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/Latest_News/video.dart';
+import 'package:premleague/Clean_arch/Core/local/cache_helper.dart';
+import '../../../../Core/Utils/Constants.dart';
+import '../../../Profile/presentation/pages/UserProfile.dart';
+import '../../../Register/presentation/pages/UserRegister.dart';
 import '../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import '../../../../../shared/component/components.dart';
+import '../../../../Core/Utils/components.dart';
 import '../../../../../shared/component/list_components.dart';
 
 class settingss extends StatelessWidget {

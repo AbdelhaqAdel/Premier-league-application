@@ -1,11 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-
-import '../../../Score/presentation/pages/Score.dart';
-import '../../../Stats/presentation/pages/StatsScreen.dart';
-import 'Latest_Matches/presentation/pages/Matches_latest_screen.dart';
-import 'Latest_News/presentation/pages/News_LatestScreen.dart';
+import 'Latest_Matches/Matches_latest_screen.dart';
+import 'Latest_News/News_LatestScreen.dart';
 class test extends StatefulWidget {
   @override
   State<test> createState() => _testState();
