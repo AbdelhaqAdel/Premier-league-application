@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage>{
       builder: (context, state) {
 
         PremCubitCubit cubit =PremCubitCubit.get(context);
-         id = YoutubePlayer.convertUrlToId('${cubit.VideosList[cubit.videoIndex]['video']}')!;
+         id = YoutubePlayer.convertUrlToId('${cubit.videosList[cubit.videoIndex]['video']}')!;
         _controller= YoutubePlayerController(initialVideoId: id,
           flags: YoutubePlayerFlags(autoPlay: true),
         );

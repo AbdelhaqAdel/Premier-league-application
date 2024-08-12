@@ -1,9 +1,5 @@
-import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:meta/meta.dart';
 import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreen.dart';
 import 'package:premleague/Clean_arch/Features/Stats/presentation/pages/StatsScreen.dart';
 import 'package:premleague/Clean_arch/Features/FavTeam/presentation/pages/Fav_Teams.dart';
@@ -17,7 +13,6 @@ import '../../../../../Clean_arch/Features/Stats/data/models/ScorersModel.dart';
 import '../../../../../Clean_arch/Features/Stats/data/models/StandingsModel.dart';
 import '../../../../../Clean_arch/Features/Login/data/models/LoginModel.dart';
 import '../../../../../Clean_arch/Features/Register/data/models/RegisterModel.dart';
-import '../../../../../Clean_arch/Core/Utils/Constants.dart';
 import '../../../../../Clean_arch/Core/remote/endPoints.dart';
 import '../../../../../Clean_arch/Core/remote/DioHelper.dart';
 part 'prem_cubit_state.dart';
@@ -29,47 +24,46 @@ class PremCubitCubit extends Cubit<PremCubitState> {
   int currentIndex=0;
   int videoIndex=0;
   int imageindex=0;
-  int imageindex1=0;
   bool isLiverSelected=true;
-  String? Tokenn;
+  String? tokenn;
   String?regTokenn;
   String? selectedImage;
   String?selectedTeamName;
   List<BottomNavigationBarItem>bottomItems=[
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.article_outlined),
       label: 'Latest'
       ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
         icon: Icon(Icons.center_focus_strong_outlined),
         label: 'Fav Team'
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.slow_motion_video_outlined,size: 25,),
       label: 'Score',
      // backgroundColor: Colors.black,
       ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.assessment_outlined),
       label: 'Stats'
       ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
         icon: Icon(Icons.settings),
         label: 'Settings'
     ),
   ];
-  List<Widget>Screens=[
+  List<Widget>screens=[
     test(),
-    FavTeam(),
-    SoccerMatch(),
-    Stats(),
-    settingss(),
+    const FavTeam(),
+    const SoccerMatch(),
+    const Stats(),
+    const Settings(),
   ];
-  void ChangeBottomNavBar (int index){
+  void changeBottomNavBar (int index){
     currentIndex=index;
     emit(PremBottomNavBarState());
   }
-  List<Map>Favteam=[
+  List<Map>favteam=[
     {
     'image':'assets/images/arsenal.jpeg',
     'teamName': 'Arsenal',
@@ -126,7 +120,7 @@ class PremCubitCubit extends Cubit<PremCubitState> {
 
   ];
 
-  List <Map>VideosList = [
+  List <Map>videosList = [
     {
       'image': 'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2018/05/06/679510-manchester-city-reuters.jpg',
       'title': 'See Man City title celebrations like never before',
@@ -334,13 +328,13 @@ print(value.data);
   }
 
   UserProfileModel ? getuserData;
-  void GetUserProfile({
+  void getUserProfile({
     required String? token,
   }) {
-    DioHelper3.GetData(url: PROFILE, token: Tokenn).then((value) {
+    DioHelper3.GetData(url: PROFILE, token: tokenn).then((value) {
       emit(shopGetUserLoadingState());
-      print('Tokenn is ${Tokenn}');
-      getuserData=UserProfileModel.fromJson(value?.data);
+      print('Tokenn is ${tokenn}');
+      getuserData=UserProfileModel.fromJson(value.data);
       print(value?.data);
       // print(homedata?.status);
       print('//////////');
@@ -355,7 +349,7 @@ print(value.data);
 
   /*-------------------------*/
   UserRegisterModel ?registerModel;
-  void UserRegister({
+  void userRegister({
     required String name,
     required String email,
     required String password,
@@ -390,14 +384,14 @@ print(value.data);
   }){
     emit(shopUpdateLoadingState());
     DioHelper3.PutData(
-      token: Tokenn,
+      token: tokenn,
         url: UPDATE,
         data:{
           'name':name,
           'email':email,
           'phone':phone,
         }).then((value) {
-          print('RegToken is from cubit ${Tokenn}');
+          print('RegToken is from cubit ${tokenn}');
           getuserData= UserProfileModel.fromJson(value.data);
       print(value.data);
 

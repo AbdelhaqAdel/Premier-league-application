@@ -1,7 +1,4 @@
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 Widget defaultButton({
   double width=double.infinity,
   bool isUPpercase=true,
@@ -204,9 +201,8 @@ Widget defaultformfeild(
                       onTap: () {
                         onTap!();
                       }, 
-                      validator: (value) {
-                        validate(value);
-                      },
+                      validator: (value)=> validate(value),
+      
                       decoration: InputDecoration(
                         labelText:label,
                         prefixIcon:Icon(prefix),
@@ -215,7 +211,7 @@ Widget defaultformfeild(
                         },
                          icon: Icon(suffix),
                          ):null,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                       ),
                       
                    

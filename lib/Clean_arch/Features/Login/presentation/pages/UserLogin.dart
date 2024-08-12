@@ -28,7 +28,7 @@ class UserLogin extends StatelessWidget {
         if (state is shopLoginSuccessState) {
           if (state.loginmodel.status!) {
             print(state.loginmodel.message);
-            PremCubitCubit.get(context).Tokenn=state.loginmodel?.data?.token;
+            PremCubitCubit.get(context).tokenn=state.loginmodel?.data?.token;
             print('/////////////////////');
             print('token is  ${state.loginmodel?.data?.token}');
              CacheHelper.savaData(key: 'token', value: state.loginmodel.data?.token);

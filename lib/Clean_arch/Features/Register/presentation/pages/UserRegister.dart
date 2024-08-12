@@ -34,7 +34,7 @@ class UserRegister extends StatelessWidget {
           if (state is shopRegisterSuccessState) {
             if (state.userModel.status!) {
               print(state.userModel.message);
-              PremCubitCubit.get(context).Tokenn=state.userModel?.data?.token;
+              PremCubitCubit.get(context).tokenn=state.userModel?.data?.token;
               print('/////////////////////');
               print('regtoken is  ${state.userModel?.data?.token}');
               print('regtoken issss  ${PremCubitCubit.get(context).regTokenn}');
@@ -233,7 +233,7 @@ class UserRegister extends StatelessWidget {
                         builder: (context) => defaultButton(
                           function: () {
                             if (_formKey.currentState!.validate()) {
-                              PremCubitCubit.get(context).UserRegister(
+                              PremCubitCubit.get(context).userRegister(
                                 name: nameController.text,
                                 email: emailController.text,
                                 password: passwordController.text,

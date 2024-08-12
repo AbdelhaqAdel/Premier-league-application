@@ -10,6 +10,7 @@ class changefavteamimageState1 extends PremCubitState{}
 class ChangeVideosState extends PremCubitState{}
 /*---------------------------------------------*/
 class MatchsTimeLoadingState extends PremCubitState {}
+// ignore: must_be_immutable
 class MatchsTimeSuccessState extends PremCubitState {
   List <MatchTimeModel> matchsTime;
   MatchsTimeSuccessState(this.matchsTime);
@@ -17,6 +18,7 @@ class MatchsTimeSuccessState extends PremCubitState {
 class MatchsTimeErrorState extends PremCubitState {}
 /*----------------------------------------------*/
 class MatchesResultsLoadingState extends PremCubitState {}
+// ignore: must_be_immutable
 class MatchesResultsSuccessState extends PremCubitState {
   List <MatchesResultsModel> matchsResults;
   MatchesResultsSuccessState(this.matchsResults);
@@ -26,6 +28,7 @@ class MatchesResultsErrorState extends PremCubitState {}
 
 class premStatesLoadingState extends PremCubitState {}
 
+// ignore: must_be_immutable
 class premStatesSuccessState extends PremCubitState {
   List <dynamic> standings;
   premStatesSuccessState(this.standings);
@@ -33,6 +36,7 @@ class premStatesSuccessState extends PremCubitState {
 class premStatesErrorState extends PremCubitState {}
 /*-------------------------------------------------*/
 class CardsLoadingState extends PremCubitState {}
+// ignore: must_be_immutable
 class CardsSuccessState extends PremCubitState {
   List <dynamic> cards;
   CardsSuccessState(this.cards);
@@ -43,6 +47,7 @@ class ScorersScreenInitial extends PremCubitState {}
 
 class ScorersLoadingState extends PremCubitState {}
 
+// ignore: must_be_immutable
 class ScorersSuccessState extends PremCubitState {
   List <dynamic> scorers;
   ScorersSuccessState(this.scorers);
@@ -50,6 +55,7 @@ class ScorersSuccessState extends PremCubitState {
 class ScorersStatesErrorState extends PremCubitState {}
 /*--------------------------------------------------*/
 class PlayerAssistLoadingState extends PremCubitState {}
+// ignore: must_be_immutable
 class PlayerAssistSuccessState extends PremCubitState {
   List <dynamic> assists;
   PlayerAssistSuccessState(this.assists);
@@ -57,12 +63,14 @@ class PlayerAssistSuccessState extends PremCubitState {
 class PlayerAssistErrorState extends PremCubitState {}
 /*-------------------------------------------------*/
 class SoccerLoadingState extends PremCubitState {}
+// ignore: must_be_immutable
 class SoccerSuccessState extends PremCubitState {
   List <dynamic> Soccer;
   SoccerSuccessState(this.Soccer);
 }
 class SoccerErrorState extends PremCubitState {}
 /*----------------------------LOGIN------------*/
+// ignore: camel_case_types
 class shopLoginInitialState extends PremCubitState {}
 
 class shopLoginLoadingState extends PremCubitState {}

@@ -1,45 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:intl/intl.dart';
 import 'package:premleague/Clean_arch/Features/Register/presentation/pages/SelectFavTeamScreen.dart';
-import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/Latest_News/video.dart';
-import 'package:premleague/Clean_arch/Core/local/cache_helper.dart';
-import '../../../../Core/Utils/Constants.dart';
 import '../../../Profile/presentation/pages/UserProfile.dart';
 import '../../../Register/presentation/pages/UserRegister.dart';
 import '../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import '../../../../Core/Utils/components.dart';
-import '../../../../../shared/component/list_components.dart';
 
-class settingss extends StatelessWidget {
-  const settingss({super.key});
+class Settings extends StatelessWidget {
+  const Settings({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var ScaffoldKey = GlobalKey<ScaffoldState>();
-    var formKey = GlobalKey<FormState>();
-    bool isBottomSheetShown = false;
-    //bool isLogin=false;
-   // bool isSelcted = false;
-    // late int imageindex=0;
+    var scaffoldKey = GlobalKey<ScaffoldState>();
+
     return BlocConsumer<PremCubitCubit, PremCubitState>(
       listener: (context, state) {
-      // if(state is shopLoginSuccessState) {
-      //   if (state.loginmodel.status!) {
-      //     isLogin=true;
-      //   }
-      // }
       },
       builder: (context, state) {
         PremCubitCubit cubit = PremCubitCubit.get(context);
-        List<Map> Favteam= PremCubitCubit.get(context).Favteam;
         return Scaffold(
           backgroundColor: Colors.transparent,
-          key: ScaffoldKey,
+          key: scaffoldKey,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             title: Padding(
@@ -53,7 +35,7 @@ class settingss extends StatelessWidget {
           body: Padding(
             padding: const EdgeInsets.only(top: 40),
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -61,15 +43,14 @@ class settingss extends StatelessWidget {
                     padding: const EdgeInsets.all(12.0),
                     child: GestureDetector(
                       onTap: (){
-                        //print(Token);
-                        print('token from settings is ${cubit.Tokenn}');
+                        print('token from settings is ${cubit.tokenn}');
                         //print(CacheHelper.getAllData(key: 'token'));
                         print(cubit.isLogin);
-                        cubit.GetUserProfile(token: cubit.Tokenn);
+                        cubit.getUserProfile(token: cubit.tokenn);
                         NavigateTo(context, cubit.isLogin?UserProfile():UserRegister());
 
                       },
-                      child: Row(
+                      child: const Row(
                         children: [
                           CircleAvatar(
                             backgroundColor: Colors.blue,
@@ -90,7 +71,7 @@ class settingss extends StatelessWidget {
                   myDevider(),
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0,right: 15),
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       height: 50,
                       child: Row(
@@ -99,7 +80,7 @@ class settingss extends StatelessWidget {
                             'Change App Mode',
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
-                          Spacer(),
+                          const Spacer(),
                           /* IconButton(
                             onPressed: (){
                               appcubit.get(context).changeAppMode();
