@@ -1,29 +1,16 @@
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreens/MatchDay.dart';
-import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/Latest_News/video.dart';
-import 'package:premleague/Clean_arch/Core/Utils/components.dart';
 import '../../../data/remote/models/MatchesResultsModel.dart';
 import '../../../data/remote/models/MatchsTimeModel.dart';
-import '../../../../../../shared/component/list_components.dart';
 import '../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import '../../../../Stats/presentation/pages/StatsScreen.dart';
 import '../../widgets/matches_custom_widgets.dart';
-import '../Latest_News/video.dart';
 
 class LatestMatches extends StatefulWidget {
   const LatestMatches({super.key});
-
   @override
   State<LatestMatches> createState() => _LatestState();
 }
-
 class _LatestState extends State<LatestMatches> {
   @override
   Widget build(BuildContext context) {
@@ -51,7 +38,6 @@ class _LatestState extends State<LatestMatches> {
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                //mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(top: 15,left: 5,bottom: 15),
@@ -60,7 +46,6 @@ class _LatestState extends State<LatestMatches> {
                                     ),
                                   ),
                                   Container(
-
                                     height: 150,
                                     //width: double.infinity,
                                     child: ListView.separated(
@@ -74,18 +59,16 @@ class _LatestState extends State<LatestMatches> {
                               ),
                             ),
                           ),
-
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child:
                             Container(
                               decoration: BoxDecoration(
-
                                 borderRadius: BorderRadius.circular(7),
                               ),
                               child:
                                  Text(
-                                      'Matchs Week time ',
+                                      'Matches Week time ',
                                       style: Theme.of(context).textTheme.bodyLarge,
                                     ),
                             ),),
@@ -105,31 +88,7 @@ class _LatestState extends State<LatestMatches> {
                                         fallback: (context) =>
                                             Center(child: CircularProgressIndicator()),
                                       ),
-
                                     ),
-
-                                 // Container(
-                                 //      height: 35,
-                                 //      width: 80,
-                                 //      decoration: BoxDecoration(
-                                 //          borderRadius:
-                                 //              BorderRadius.circular(20),
-                                 //          color:  HexColor('#570861') ,
-                                 //      ),
-                                 //      child: defaultTextButton(
-                                 //        Color: Colors.grey[300],
-                                 //        function: () {
-                                 //          NavigateTo(context, MatchDay());
-                                 //        },
-                                 //        text: 'See All',
-                                 //      ),
-                                 //    ),
-
-
-
-
-
-
                     ]
                   ),
                 ),

@@ -64,7 +64,7 @@ class premleague extends StatelessWidget {
                       child: SizedBox(),
                     ),
                   ),
-                  cubit.Screens[cubit.currentIndex],
+                  cubit.screens[cubit.currentIndex],
                   Column(
                     children: [
                       Spacer(),
@@ -91,13 +91,10 @@ class premleague extends StatelessWidget {
                                 child: BottomNavigationBar(
                                   currentIndex: cubit.currentIndex,
                                   onTap: (index){
-                                    cubit.ChangeBottomNavBar(index);
+                                    cubit.changeBottomNavBar(index);
                                   },
                                   type: BottomNavigationBarType.fixed,
-                                  items: cubit.bottomItems,
-                                  //fixedColor: Colors.black,
-                                  // selectedItemColor: HexColor('#d4088b'),
-                                  // backgroundColor: Colors.white,
+                                  items: cubit.bottomItems,                                 
                                   elevation: 0,
                                 ),
                               ),

@@ -23,7 +23,7 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
       builder: (context, state) {
         PremCubitCubit cubit =PremCubitCubit.get(context);
         List<Map> newslist = PremCubitCubit.get(context).newsList;
-        List<Map> VideosList = PremCubitCubit.get(context).VideosList;
+        List<Map> VideosList = PremCubitCubit.get(context).videosList;
 
         return Scaffold(
           backgroundColor:Colors.transparent,

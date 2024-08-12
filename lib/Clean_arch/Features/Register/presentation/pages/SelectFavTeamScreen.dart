@@ -81,7 +81,7 @@ class _SelectBestTeamScreenState extends State<SelectBestTeamScreen> {
                     ignoring: selectedIndex>=0?false:true,
                     child: GestureDetector(
                       onTap: (){
-                        NavigateTo(context, const premleague());
+                        NavigationAndFinish(context, const premleague());
                         },
                       child: Container(
                         height: 50,

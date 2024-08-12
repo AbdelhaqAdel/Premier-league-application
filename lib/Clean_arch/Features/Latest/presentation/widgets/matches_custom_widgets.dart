@@ -241,27 +241,7 @@ Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
               ),
             ],
           ),
-          // Row(children: [
-          //   Container(
-          //     height: 30,
-          //     width: 30,
-          //     decoration: BoxDecoration(
-          //       image: DecorationImage(
-          //         image: NetworkImage('${matchesResault.homeLogo}'),
-          //         fit: BoxFit.cover,
-          //       ),
-          //     ),
-          //   ),
-          //   SizedBox(width: 15,),
-          //   Container(
-          //     decoration: BoxDecoration(
-          //
-          //     ),
-          //   ),
-          //   SizedBox(width: 15,),
-          //
-          // ],),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Container(

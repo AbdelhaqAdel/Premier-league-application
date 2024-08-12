@@ -1,19 +1,11 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/Clean_arch/Config/Routes/app_routes.dart';
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import 'package:premleague/Clean_arch/Features/Stats/data/models/StandingsModel.dart';
-import '../../../../Core/Utils/components.dart';
-import '../../../../../shared/component/list_components.dart';
 import '../widgets/stats_custom_widgets.dart';
-import 'StatsScreens/AssistsScreen.dart';
-import 'StatsScreens/CleanSheetScreen.dart';
-import 'StatsScreens/ScorersScreen.dart';
-import 'StatsScreens/TeamsGoalsScreen.dart';
 class Stats extends StatelessWidget {
   const Stats({super.key});
 
@@ -32,11 +24,11 @@ class Stats extends StatelessWidget {
               body: Padding(
                 padding: const EdgeInsets.only(top: 40),
                 child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       Padding(
@@ -50,7 +42,7 @@ class Stats extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Padding(
@@ -66,7 +58,7 @@ class Stats extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Container(
+                        child: SizedBox(
                           width: double.infinity,
                           height: 250,
                           child: Row(
@@ -88,9 +80,9 @@ class Stats extends StatelessWidget {
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        Padding(
+                                        const Padding(
                                           padding:
-                                              const EdgeInsets.only(top: 30.0),
+                                              EdgeInsets.only(top: 30.0),
                                           child: Image(
                                             image: AssetImage(
                                                 'assets/images/haland11.png'),
@@ -100,7 +92,7 @@ class Stats extends StatelessWidget {
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF17203A),
+                                            color: const Color(0xFF17203A),
                                             borderRadius:
                                                 BorderRadius.circular(15),
                                           ),
@@ -131,7 +123,8 @@ class Stats extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
+
                                 width: 10,
                               ),
                               Expanded(
@@ -150,8 +143,8 @@ class Stats extends StatelessWidget {
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                        const Padding(
+                                          padding: EdgeInsets.all(8.0),
                                           child: Image(
                                             image: AssetImage(
                                                 'assets/images/debruyne11.png'),
@@ -198,7 +191,7 @@ class Stats extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Container(
+                        child: SizedBox(
                           width: double.infinity,
                           height: 250,
                           child: Row(
@@ -219,8 +212,8 @@ class Stats extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                        const Padding(
+                                          padding: EdgeInsets.all(8.0),
                                           child: Image(
                                             image: AssetImage(
                                                 'assets/images/manlogo.png'),
@@ -261,7 +254,7 @@ class Stats extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Expanded(
@@ -280,8 +273,8 @@ class Stats extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                        const Padding(
+                                          padding: EdgeInsets.all(8.0),
                                           child: Image(
                                             image: AssetImage(
                                                 'assets/images/YRcards.png'),
@@ -328,7 +321,7 @@ class Stats extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.transparent,
                         ),
                         child: Column(

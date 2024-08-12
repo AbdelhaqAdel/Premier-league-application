@@ -24,7 +24,7 @@ class UserProfile extends StatelessWidget {
     // if (state.userData.status==true) {
 
     PremCubitCubit cubit=PremCubitCubit.get(context);
-    print(' token from profile ${cubit.Tokenn}');
+    print(' token from profile ${cubit.tokenn}');
     var userprofile=cubit.getuserData;
     nameController.text=userprofile!.data!.name!;
     emailController.text=userprofile!.data!.email!;
