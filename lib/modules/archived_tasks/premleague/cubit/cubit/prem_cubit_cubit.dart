@@ -56,7 +56,7 @@ class PremCubitCubit extends Cubit<PremCubitState> {
     test(),
     const FavTeam(),
     const SoccerMatch(),
-    const Stats(),
+     Stats(),
     const Settings(),
   ];
   void changeBottomNavBar (int index){

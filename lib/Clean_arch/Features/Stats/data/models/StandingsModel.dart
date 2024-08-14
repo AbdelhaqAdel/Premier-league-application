@@ -15,12 +15,12 @@ class StandingsModel{
       this.bestTeamLogo,
       );
   StandingsModel.fromJson(Map<String,dynamic>json){
-    points=json['points'];
-    position=json['position'];
-    teamName=json['team']['shortName'];
-    goals=json['goalsFor'];
-    matchesPlay=json['playedGames'];
-    bestTeamLogo=json['team']['crest'];
+    points=json['points']??0;
+    position=json['position']??0;
+    teamName=json['team']['shortName']??'';
+    goals=json['goalsFor']??0;
+    matchesPlay=json['playedGames']??0;
+    bestTeamLogo=json['team']['crest']??'';
 
   }
 
