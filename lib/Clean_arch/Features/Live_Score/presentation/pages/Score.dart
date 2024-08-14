@@ -1,23 +1,11 @@
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreens/MatchDay.dart';
-import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/Latest_News/video.dart';
-import 'package:premleague/Clean_arch/Core/Utils/components.dart';
 import '../../../Latest/data/remote/models/MatchesResultsModel.dart';
 import '../../../Latest/data/remote/models/MatchsTimeModel.dart';
-import '../../../../../shared/component/list_components.dart';
 import '../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import '../../../Latest/presentation/widgets/matches_custom_widgets.dart';
-import 'Score.dart';
-import '../../../Stats/presentation/pages/StatsScreen.dart';
-import '../../../Latest/presentation/pages/Latest_News/video.dart';
 
 class SoccerMatch extends StatelessWidget {
   const SoccerMatch({Key? key}) : super(key: key);

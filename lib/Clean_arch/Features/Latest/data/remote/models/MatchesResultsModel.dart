@@ -4,14 +4,14 @@
 
 import 'package:premleague/Clean_arch/Features/Latest/domain/entities/matches_resault_entity.dart';
 
-class MatchesResultsModel extends MatchesResaultEntity{
-  late String? homeName;
-  late String? homeLogo;
-  late String? awayName;
-  late String? awayLogo;
-  late num? scoreHome;
-  late num? scoreAway;
-  late String? state;
+class MatchesResultsModel extends MatchesResultEntity{
+  String? homeName;
+  String? homeLogo;
+  String? awayName;
+  String? awayLogo;
+  num? scoreHome;
+  num? scoreAway;
+  String? state;
 
   
   MatchesResultsModel({
@@ -22,15 +22,14 @@ class MatchesResultsModel extends MatchesResaultEntity{
       this.scoreHome,
       this.scoreAway,
       this.state,
-}) : super(homeName, homeLogo, awayName, awayLogo, scoreHome, scoreAway);
+}) : super(homeName, homeLogo??'', awayName, awayLogo??'', scoreHome, scoreAway);
 
-  @override
    factory MatchesResultsModel.fromJson(Map<String, dynamic>json){
      return MatchesResultsModel(
     homeName : json['teams']['home']['name'],
-    homeLogo : json['teams']['home']['logo'],
+    homeLogo : json['teams']['home']['logo']??'',
     awayName : json['teams']['away']['name'],
-    awayLogo : json['teams']['away']['logo'],
+    awayLogo : json['teams']['away']['logo']??'',
     scoreHome : json['goals']['home'],
     scoreAway : json['goals']['away'],
     state : json['fixture']['status']['short']

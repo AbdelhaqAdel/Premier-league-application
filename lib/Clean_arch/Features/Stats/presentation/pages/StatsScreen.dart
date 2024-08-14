@@ -400,7 +400,7 @@ class Stats extends StatelessWidget {
                               ),
                               height: 550,
                               width: double.infinity,
-                              child:StandingListVireBuilder(),
+                              child:StandingListViewBuilder(),
                               //  ConditionalBuilder(
                               //   condition: standingCubit.standingRepo.length > 0,
                               //   builder: (context) => ListView.separated(

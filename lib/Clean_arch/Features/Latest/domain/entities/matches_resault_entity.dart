@@ -1,14 +1,14 @@
 //all data that used in UI
 
-class MatchesResaultEntity{
-  late String? homeNameE;
-  late String? homeLogoE;
-  late String? awayNameE;
-  late String? awayLogoE;
-  late num? scoreHomeE;
-  late num? scoreAwayE;
+class MatchesResultEntity{
+  final String? homeNameE;
+  final String? homeLogoE;
+  final String? awayNameE;
+  final String? awayLogoE;
+  final num? scoreHomeE;
+  final num? scoreAwayE;
   
-    MatchesResaultEntity(
+    MatchesResultEntity(
       this.homeNameE,
       this.homeLogoE,
       this.awayNameE,
@@ -16,5 +16,5 @@ class MatchesResaultEntity{
       this.scoreHomeE,
       this.scoreAwayE,
       );
-   MatchesResaultEntity.fromJson(Map<String, dynamic>json);
+ //factory MatchesResultEntity.fromJson(Map<String, dynamic>json);
 }

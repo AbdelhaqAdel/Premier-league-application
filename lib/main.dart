@@ -35,9 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => PremCubitCubit()
-        ..getMatchesTimeData()
         ..getMatchesResultsData()
-        ..getStandingsData()
         ..getCardsData()
         ..getScorrersData()
         ..getAssistsData(),

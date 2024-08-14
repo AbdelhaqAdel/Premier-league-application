@@ -3,5 +3,6 @@ import 'package:premleague/Clean_arch/Features/Stats/data/data_sources/Remote/St
 import 'package:premleague/Clean_arch/Features/Stats/data/repositories/standing_repo.dart';
   final getIt=GetIt.instance;
 void setupLocator(){
-  getIt.registerSingleton<StandingRepoImpl>(StandingRepoImpl(standingDataSource: StandingTableDataSourceImpl()));
+  getIt.registerSingleton<StandingRepoImpl>(StandingRepoImpl
+    (standingDataSource: StandingTableDataSourceImpl()));
 }
