@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:premleague/Clean_arch/Core/Utils/git_it/standing_table_locator.dart';
 import 'package:premleague/Clean_arch/Features/on_boarding/presentation/pages/onBoardingScreen.dart';
 import 'package:premleague/bloc_observer.dart';
 import 'package:premleague/Clean_arch/Core/remote/DioHelper.dart';
@@ -11,6 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
    DioHelper.init();
+   setupLocator();
 
 //   await CacheHelper.init();
 //  Token =CacheHelper.getAllData(key: 'token');
