@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../data/remote/models/MatchesResultsModel.dart';
 import '../../data/remote/models/MatchsTimeModel.dart';
+import '../../domain/entities/matches_result_entity.dart';
 
 
 
@@ -135,7 +136,7 @@ Widget matchstime(MatchTimeModel model3, context) => Container(
   ),
 );
 
-Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
+Widget matchsResult(MatchesResultEntity matchesResult, context) => Container(
   width: 370,
   decoration: BoxDecoration(
     gradient: LinearGradient(
@@ -166,7 +167,7 @@ Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
                     width: 150,
                     child: Center(
                       child: Text(
-                        '${matchesResault.homeName}',
+                        '${matchesResult.homeNameE}',
                         maxLines: 1,
                         style: TextStyle(
                           fontSize: 25,
@@ -184,7 +185,7 @@ Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
                     width: 35,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage('${matchesResault.homeLogo}'),
+                        image: NetworkImage('${matchesResult.homeLogoE}'),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -213,7 +214,7 @@ Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
                     width: 150,
                     child: Center(
                       child: Text(
-                        '${matchesResault.awayName}',
+                        '${matchesResult.awayNameE}',
                         maxLines: 1,
                         //overflow:TextOverflow.ellipsis ,
                         style: TextStyle(
@@ -232,7 +233,7 @@ Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
                     width: 35,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage('${matchesResault.awayLogo}'),
+                        image: NetworkImage('${matchesResult.awayLogoE}'),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -257,7 +258,7 @@ Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '${matchesResault.scoreHome}',
+                  '${matchesResult.scoreHomeE}',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
@@ -281,7 +282,7 @@ Widget matchsResult(MatchesResultsModel matchesResault, context) => Container(
                   width: 10,
                 ),
                 Text(
-                  '${matchesResault.scoreAway}',
+                  '${matchesResult.scoreAwayE}',
                   style: TextStyle(
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,

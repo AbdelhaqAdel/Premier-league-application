@@ -39,12 +39,9 @@ class StandingTableDataSourceImpl extends StandingTableDataSource{
 
             // });
           return standings;
-      // }}).catchError((onError){
-      // print(onError.toString());
-    // });
+     
   }
   void getStandingList(Response<dynamic> featchedData) {
-
       List Json = featchedData.data['standings'][0]['table'];
     for (var element in Json) {
      // print(json);

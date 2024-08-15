@@ -11,5 +11,7 @@ class AppText{
   static const String selectFavTeam='Select Your Best Team';
   static const String loginDonNotHaveAcc= 'Don\'t have an account?';
 
+  static const String matchesResultBox='matchesResultBox';
+
 
 }

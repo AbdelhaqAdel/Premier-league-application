@@ -83,8 +83,7 @@ class UserRegister extends StatelessWidget {
                       Text(
                         'REGISTER',
                         style: Theme.of(context)
-                            .textTheme
-                            .headline4
+                            .textTheme.headlineMedium
                             ?.copyWith(color: Colors.black),
                       ),
                       SizedBox(
@@ -93,7 +92,7 @@ class UserRegister extends StatelessWidget {
                       Text(
                         'Register now',
                         style:
-                        Theme.of(context).textTheme.bodyText1?.copyWith(
+                        Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: Colors.grey,
                         ),
                       ),

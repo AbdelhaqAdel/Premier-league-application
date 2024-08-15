@@ -73,7 +73,7 @@ class UserLogin extends StatelessWidget {
                           'Login',
                           style: Theme.of(context)
                               .textTheme
-                              .headline4
+                              .headlineMedium
                               ?.copyWith(color: Colors.black),
                         ),
                         SizedBox(
@@ -82,11 +82,11 @@ class UserLogin extends StatelessWidget {
                         Text(
                           'Login now',
                           style:
-                              Theme.of(context).textTheme.bodyText1?.copyWith(
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
                                     color: Colors.grey,
                                   ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         TextFormField(

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:premleague/Clean_arch/Features/Stats/presentation/manager/cubit/standing_table_cubit.dart';
 import 'package:premleague/Clean_arch/Features/Stats/presentation/widgets/standing_table_listView.dart';
 
-class StandingListVireBuilder extends StatelessWidget {
-  const StandingListVireBuilder({super.key});
+class StandingListViewBuilder extends StatelessWidget {
+  const StandingListViewBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class StandingListVireBuilder extends StatelessWidget {
        }else if(state is FetchStandingTableError){
         return Text(state.errorMessage);
        }else{
-        return Text('rrrr');
+        return const CircularProgressIndicator();
        }
 
     });

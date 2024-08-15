@@ -28,7 +28,7 @@ class Settings extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Text(
                 'Settings',
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
               ),
             ),
           ),
@@ -78,7 +78,7 @@ class Settings extends StatelessWidget {
                         children: [
                           Text(
                             'Change App Mode',
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           const Spacer(),
                           /* IconButton(
@@ -98,7 +98,7 @@ class Settings extends StatelessWidget {
                                   width: 30,
                                   height: 30,
                                   decoration: BoxDecoration(
-                                    gradient: LinearGradient(
+                                    gradient: const LinearGradient(
                                         begin: Alignment.topLeft,
                                         end: Alignment.topRight,
                                         colors: [
@@ -110,39 +110,6 @@ class Settings extends StatelessWidget {
                                 ),
                               ),
                           ),
-                            /*
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.grey[300],
-                                        borderRadius: BorderRadius.circular(15),
-
-                                      ),
-                                      width: 150,
-                                      height: 100,
-
-                                      child: Center(
-                                        child: Column(
-                                          children: [ ],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(width: 15,),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.grey[300],
-                                        borderRadius: BorderRadius.circular(15),
-
-                                      ),
-                                      width: 150,
-                                      height: 100,
-
-                                      child: Center(
-                                        child: Column(
-                                          children: [    ],
-                                        ),
-                                      ),
-                                    ),
-                                 */
 
                         ],
                       ),
@@ -162,7 +129,7 @@ class Settings extends StatelessWidget {
                           children: [
                             Text(
                               'your best team',
-                              style: Theme.of(context).textTheme.bodyLarge,
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                             Spacer(),
                             /* IconButton(
@@ -242,7 +209,7 @@ class Settings extends StatelessWidget {
                         children: [
                           Text(
                            'Rate us',
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           Spacer(),
                           /* IconButton(

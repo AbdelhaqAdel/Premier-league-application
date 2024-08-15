@@ -33,7 +33,7 @@ ThemeData appTheme = ThemeData(
     backgroundColor: Colors.transparent,
   ),
   textTheme: TextTheme(
-    bodyText1: TextStyle(
+    bodyMedium: TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.w600,
       color: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:premleague/Clean_arch/Features/Latest/presentation/pages/LatestScreen.dart';
@@ -53,10 +54,10 @@ class PremCubitCubit extends Cubit<PremCubitState> {
     ),
   ];
   List<Widget>screens=[
-    test(),
+    LatestScreen(),
     const FavTeam(),
     const SoccerMatch(),
-     Stats(),
+     const Stats(),
     const Settings(),
   ];
   void changeBottomNavBar (int index){
@@ -119,7 +120,6 @@ class PremCubitCubit extends Cubit<PremCubitState> {
     },
 
   ];
-
   List <Map>videosList = [
     {
       'image': 'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2018/05/06/679510-manchester-city-reuters.jpg',
@@ -147,14 +147,11 @@ class PremCubitCubit extends Cubit<PremCubitState> {
       'video': 'https://youtu.be/8vud6pSMMOo?list=PLQ_voP4Q3cfeT5QqIr7RA7BEc2zGMn0nl',
     },
   ];
-
-  void ChangeVideos (int index){
+  void changeVideos (int index){
     videoIndex=index;
     emit(ChangeVideosState());
   }
-
   List<MatchTimeModel>matchsTime=[];
-
   void getMatchesTimeData(){
     emit(MatchsTimeLoadingState());
     //  ss.getAllScorers();
@@ -162,14 +159,10 @@ class PremCubitCubit extends Cubit<PremCubitState> {
       EndPoint: MATCHSTIME,
     ).then((value) {
       if(value.statusCode==200){
-print(value.data);
         List Json = value.data['response'];
 
         for (var element in Json) {
           matchsTime.add(MatchTimeModel.fromJson(element));
-        }
-        for(var ss in matchsTime) {
-          print(ss.date.toString());
         }
         emit(MatchsTimeSuccessState(matchsTime));
       }}).catchError((onError){
@@ -186,9 +179,7 @@ print(value.data);
       EndPoint: MATCHESRESULTS,
     ).then((value) {
       if(value.statusCode==200){
-
         List Json = value.data['response'];
-
         for (var element in Json) {
           matchesResults.add(MatchesResultsModel.fromJson(element));
         }
@@ -335,7 +326,7 @@ print(value.data);
       emit(shopGetUserLoadingState());
       print('Tokenn is ${tokenn}');
       getuserData=UserProfileModel.fromJson(value.data);
-      print(value?.data);
+      print(value.data);
       // print(homedata?.status);
       print('//////////');
       print('User Name is ${getuserData?.data?.name}');

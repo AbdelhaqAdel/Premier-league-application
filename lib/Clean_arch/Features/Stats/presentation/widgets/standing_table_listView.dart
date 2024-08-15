@@ -13,7 +13,7 @@ class StandingListView extends StatelessWidget {
       print(element.goals);
     });
     return ListView.separated(
-       physics: BouncingScrollPhysics(),
+       physics: const BouncingScrollPhysics(),
                                     itemBuilder: (context, int index) =>
                                         BuildLeagueTable(
                                             standingList![index], context),

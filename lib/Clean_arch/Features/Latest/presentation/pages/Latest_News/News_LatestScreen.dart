@@ -147,7 +147,7 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
                                       itemBuilder: (context, index) =>
                                           GestureDetector(
                                             onTap: (){
-                                              cubit.ChangeVideos(index);
+                                              cubit.changeVideos(index);
                                               NavigateTo(context, HomePage());
                                             },
                                             child: buildVideosItem(

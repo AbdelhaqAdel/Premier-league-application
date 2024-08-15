@@ -34,6 +34,7 @@ Widget bestTeamItem(StandingsModel teams,context,bool isSelected)=>Padding(
         ),
         Text(teams.teamName,
           style: const TextStyle(
+            color: Colors.black,
               fontWeight: FontWeight.bold
           ),
         ),

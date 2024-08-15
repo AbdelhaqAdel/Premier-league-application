@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:premleague/Clean_arch/Features/Stats/data/models/StandingsModel.dart';
 import 'package:premleague/Clean_arch/Features/Stats/data/repositories/standing_repo.dart';
-//make the cubit manage the state only
 part 'standing_table_state.dart';
 
 class StandingTableCubit extends Cubit<StandingTableState> {
@@ -10,8 +9,8 @@ class StandingTableCubit extends Cubit<StandingTableState> {
   final StandingRepoImpl standingRepo;
   Future<void>fetchStandingTable()async{
     emit(FetchStandingTableLoading());
-    var resault= await standingRepo.fetchStandingTable();  
-    resault.fold(
+    var result= await standingRepo.fetchStandingTable();
+    result.fold(
       (error) => FetchStandingTableError(error.message),
      (standing) {
       //standing.forEach((element) {print(element.teamName);},);

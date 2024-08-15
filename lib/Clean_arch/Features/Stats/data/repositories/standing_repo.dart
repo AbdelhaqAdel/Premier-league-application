@@ -16,20 +16,14 @@ class StandingRepoImpl extends StandingRepoAbs{
       print('getting data from repo');
       //Fetching data from local data source 
      List<StandingsModel> standinFromRepo=await standingDataSource.getStandingData();
-    //.then((value) {
-      standinFromRepo.forEach((element) {
-        print(element.teamName);
-      },);
-       return  right( standinFromRepo);
-      //});
-      
+       return  right(standinFromRepo);
     }catch(e){
       if(e is DioError){
         print('error -----');
-      return left( ServerFailuer.FromDioError(e));
+      return left( ServerFailure.fromDioError(e));
       }
      print('Errorrrrr---------${e.toString()}');
-      return left(ServerFailuer(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
    

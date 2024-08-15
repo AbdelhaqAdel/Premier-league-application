@@ -3,9 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../Core/Utils/Constants.dart';
-import '../../../../Core/Utils/components.dart';
 import '../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 
 class UserProfile extends StatelessWidget {
@@ -27,8 +25,8 @@ class UserProfile extends StatelessWidget {
     print(' token from profile ${cubit.tokenn}');
     var userprofile=cubit.getuserData;
     nameController.text=userprofile!.data!.name!;
-    emailController.text=userprofile!.data!.email!;
-    phoneController.text=userprofile!.data!.phone!;
+    emailController.text=userprofile.data!.email!;
+    phoneController.text=userprofile.data!.phone!;
      }
     // else{
     //   print('stata error');

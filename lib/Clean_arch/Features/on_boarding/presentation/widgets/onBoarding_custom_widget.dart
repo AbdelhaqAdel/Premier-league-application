@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-
+import 'package:flutter/material.dart';
 import '../../data/models/data_model.dart';
 
 Widget buildBoarditem(boardingModel model) => Column(
@@ -7,30 +6,32 @@ Widget buildBoarditem(boardingModel model) => Column(
   children: [
     Expanded(
       child: Image(
-        image: AssetImage('${model.image}'),
+        image: AssetImage(model.image),
       ),
     ),
-    SizedBox(
+    const SizedBox(
       height: 20,
     ),
     Text(
-      '${model.title}',
-      style: TextStyle(
+      model.title,
+      style: const TextStyle(
+        color: Colors.black,
         fontWeight: FontWeight.bold,
         fontSize: 24,
       ),
     ),
-    SizedBox(
+    const SizedBox(
       height: 20,
     ),
     Text(
-      '${model.body}',
-      style: TextStyle(
+      model.body,
+      style: const TextStyle(
+        color: Colors.black,
         fontWeight: FontWeight.bold,
         fontSize: 14,
       ),
     ),
-    SizedBox(
+    const SizedBox(
       height: 20,
     ),
   ],

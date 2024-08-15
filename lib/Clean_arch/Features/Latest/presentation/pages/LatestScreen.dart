@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'Latest_Matches/Matches_latest_screen.dart';
 import 'Latest_News/News_LatestScreen.dart';
-class test extends StatefulWidget {
+class LatestScreen extends StatefulWidget {
   @override
-  State<test> createState() => _testState();
+  State<LatestScreen> createState() => _LatestScreenState();
 }
 //-----------------change test ---------------
-class _testState extends State<test> {
+class _LatestScreenState extends State<LatestScreen> {
   int navbar=1;
   List Screen2=[
      LatestNewsScreen(),
