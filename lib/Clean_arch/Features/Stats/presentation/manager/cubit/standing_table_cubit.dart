@@ -9,8 +9,8 @@ class StandingTableCubit extends Cubit<StandingTableState> {
   final StandingRepoImpl standingRepo;
   Future<void>fetchStandingTable()async{
     emit(FetchStandingTableLoading());
-    var resault= await standingRepo.fetchStandingTable();  
-    resault.fold(
+    var result= await standingRepo.fetchStandingTable();
+    result.fold(
       (error) => FetchStandingTableError(error.message),
      (standing) {
       //standing.forEach((element) {print(element.teamName);},);

@@ -38,41 +38,42 @@ class _SelectBestTeamScreenState extends State<SelectBestTeamScreen> {
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 595,
-                  width: double.infinity,
-                  child: ConditionalBuilder(
-                    condition: bestTeamList.isNotEmpty,
-                    builder: (context) => GridView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 160,
-                        childAspectRatio: 1.1,
-                      ),
-                      itemCount: bestTeamList.length,
-                      itemBuilder: (context, index) {
-                        item = bestTeamList[index];
-                        isSelected = index == selectedIndex;
-                        return GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            selectedIndex=index;
-                            PremCubitCubit.get(context).selectedImage=PremCubitCubit.get(context).standings[index].bestTeamLogo;
-                            PremCubitCubit.get(context).selectedTeamName=PremCubitCubit.get(context).standings[index].teamName;
-                            print( PremCubitCubit.get(context).selectedImage);
-                          });
-                        },
-                        child: bestTeamItem(
-                                bestTeamList[index], context,isSelected
+                Expanded(
+                  child: SizedBox(
+                    height: 600,
+                    width: double.infinity,
+                    child: ConditionalBuilder(
+                      condition: bestTeamList.isNotEmpty,
+                      builder: (context) => GridView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 160,
+                          childAspectRatio: 1.1,
                         ),
-                      );}
+                        itemCount: bestTeamList.length,
+                        itemBuilder: (context, index) {
+                          item = bestTeamList[index];
+                          isSelected = index == selectedIndex;
+                          return GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              selectedIndex=index;
+                              PremCubitCubit.get(context).selectedImage=PremCubitCubit.get(context).standings[index].bestTeamLogo;
+                              PremCubitCubit.get(context).selectedTeamName=PremCubitCubit.get(context).standings[index].teamName;
+                              print( PremCubitCubit.get(context).selectedImage);
+                            });
+                          },
+                          child: bestTeamItem(
+                                  bestTeamList[index], context,isSelected
+                          ),
+                        );}
+                      ),
+                      fallback: (context) =>
+                          const Center(child: CircularProgressIndicator()),
                     ),
-                    fallback: (context) =>
-                        const Center(child: CircularProgressIndicator()),
                   ),
                 ),
-                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(
                       top: 5, right: 8.0, left: 8, bottom: 8),

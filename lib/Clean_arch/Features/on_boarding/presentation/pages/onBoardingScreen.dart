@@ -97,7 +97,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         expansionFactor: 4,
                       ),
                       count: boarding.length),
-                  Spacer(),
+                  const Spacer(),
                   CircularPercentIndicator(
                      animation: true,
                     // addAutomaticKeepAlive: true,
@@ -109,33 +109,39 @@ class _OnBoardingState extends State<OnBoarding> {
                      progressColor:islast? Colors.pink[800] : !ismiddle? Colors.pink[400] :Colors.pink[600],
                      //backgroundColor: ,
                      circularStrokeCap: CircularStrokeCap.round,
-                     center: FloatingActionButton(
+                     center: Container(
+                       height: 65,
+                       width: 65,
+                       decoration: const BoxDecoration(
+                         color: Colors.pink,
+                         shape: BoxShape.circle,
+                       ),
+                       child: FloatingActionButton(
+                         shape:const StadiumBorder(),
+                         backgroundColor: Colors.pink,
+                         onPressed: () {
+                           if (islast) {
+                             NavigateTo(context, RegisOrSkip());
+                             // submit;
+                           } else {
+                             boardcontroller.nextPage(
+                               duration: const Duration(
+                                 milliseconds: 750,
+                               ),
+                               curve: Curves.fastLinearToSlowEaseIn,
+                             );
+                           }
+                         },
+                         child:  islast
+                                   ? const Icon(Icons.done,
+                                 color: Colors.white,
+                                  size: 35
+                               ):const Icon(Icons.arrow_forward_ios,
+                                 color: Colors.white,
+                               ),
 
-                       onPressed: () {
-                         if (islast) {
-                           NavigateTo(context, RegisOrSkip());
-                           // submit;
-                         } else {
-                           boardcontroller.nextPage(
-                             duration: Duration(
-                               milliseconds: 750,
-                             ),
-                             curve: Curves.fastLinearToSlowEaseIn,
-                           );
-                         }
-                       },
-                       child: islast
-                           ? Container(
 
-                         decoration: BoxDecoration(
-                           color: Colors.white,
-                           borderRadius: BorderRadius.circular(60)
-                         ),
-                             child: Icon(Icons.done,
-                                                    size: 35,
-                                                    ),
-                           )
-                           : Icon(Icons.arrow_forward_ios),
+                       ),
                      ),
                    ),
                     // Center(

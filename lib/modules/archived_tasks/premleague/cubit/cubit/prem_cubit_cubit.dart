@@ -159,16 +159,10 @@ class PremCubitCubit extends Cubit<PremCubitState> {
       EndPoint: MATCHSTIME,
     ).then((value) {
       if(value.statusCode==200){
-if (kDebugMode) {
-  print(value.data);
-}
         List Json = value.data['response'];
 
         for (var element in Json) {
           matchsTime.add(MatchTimeModel.fromJson(element));
-        }
-        for(var ss in matchsTime) {
-          print(ss.date.toString());
         }
         emit(MatchsTimeSuccessState(matchsTime));
       }}).catchError((onError){
@@ -186,15 +180,9 @@ if (kDebugMode) {
     ).then((value) {
       if(value.statusCode==200){
         List Json = value.data['response'];
-
         for (var element in Json) {
           matchesResults.add(MatchesResultsModel.fromJson(element));
         }
-
-        print('----------------------');
-        matchesResults.forEach((e){
-          print(e.awayLogo);
-        });
         emit(MatchesResultsSuccessState(matchesResults));
       }}).catchError((onError){
       print(onError.toString());
