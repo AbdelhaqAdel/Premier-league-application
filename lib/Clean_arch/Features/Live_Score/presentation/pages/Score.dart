@@ -16,7 +16,7 @@ class SoccerMatch extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           List <MatchesResultsModel> matchesResultList =PremCubitCubit.get(context).matchesResults;
-          List <MatchTimeModel> matchesTime =PremCubitCubit.get(context).matchsTime;
+          // List <MatchTimeModel> matchesTime =PremCubitCubit.get(context).matchsTime;
           return Scaffold(
             backgroundColor:Colors.transparent,
             body:

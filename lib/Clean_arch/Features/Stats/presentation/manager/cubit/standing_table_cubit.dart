@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:premleague/Clean_arch/Features/Stats/data/models/StandingsModel.dart';
 import 'package:premleague/Clean_arch/Features/Stats/data/repositories/standing_repo.dart';
-//make the cubit manage the state only
 part 'standing_table_state.dart';
 
 class StandingTableCubit extends Cubit<StandingTableState> {

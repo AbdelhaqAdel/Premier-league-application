@@ -1,14 +1,23 @@
 //all data that used in UI
+import 'package:hive/hive.dart';
+part 'matches_resault_entity.g.dart';
+@HiveType(typeId: 0)
 
 class MatchesResultEntity{
+  @HiveField(0)
   final String? homeNameE;
+  @HiveField(1)
   final String? homeLogoE;
+  @HiveField(2)
   final String? awayNameE;
+  @HiveField(3)
   final String? awayLogoE;
+  @HiveField(4)
   final num? scoreHomeE;
+  @HiveField(5)
   final num? scoreAwayE;
-  
-    MatchesResultEntity(
+
+  MatchesResultEntity(
       this.homeNameE,
       this.homeLogoE,
       this.awayNameE,
@@ -16,5 +25,4 @@ class MatchesResultEntity{
       this.scoreHomeE,
       this.scoreAwayE,
       );
- //factory MatchesResultEntity.fromJson(Map<String, dynamic>json);
 }

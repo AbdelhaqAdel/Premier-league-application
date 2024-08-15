@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../data/remote/models/MatchesResultsModel.dart';
 import '../../data/remote/models/MatchsTimeModel.dart';
-import '../../domain/entities/matches_resault_entity.dart';
+import '../../domain/entities/matches_result_entity.dart';
 
 
 

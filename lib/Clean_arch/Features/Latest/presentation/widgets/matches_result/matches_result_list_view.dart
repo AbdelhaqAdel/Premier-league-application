@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../domain/entities/matches_resault_entity.dart';
+import '../../../domain/entities/matches_result_entity.dart';
 import '../matches_custom_widgets.dart';
 
 class MatchesResultListView extends StatelessWidget {

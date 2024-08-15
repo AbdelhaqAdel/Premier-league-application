@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:premleague/Clean_arch/Features/Latest/domain/entities/matches_resault_entity.dart';
+import 'package:premleague/Clean_arch/Features/Latest/domain/entities/matches_result_entity.dart';
 
 import '../../../../Core/error_handliing.dart';
 

@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:premleague/Clean_arch/Features/Latest/data/data_sources/matches_resault_data_source.dart';
+import 'package:premleague/Clean_arch/Features/Latest/data/data_sources/matches_result_local_data_source.dart';
 import 'package:premleague/Clean_arch/Features/Latest/data/repositories/matches_result_repo_impl.dart';
 import 'package:premleague/Clean_arch/Features/Latest/domain/use_cases/matches_result_useCase.dart';
 import '../../../data/remote/models/MatchesResultsModel.dart';
@@ -24,7 +25,7 @@ class _LatestState extends State<LatestMatches> {
             MatchesResultCubit(
                FetchMatchesResultUseCase(
                    //MatchesResultRepoImpl.getInstance()
-                   MatchesResultRepoImpl(MatchesResultDataSourceImpl())
+                   MatchesResultRepoImpl(MatchesResultRemoteDataSourceImpl(),MatchesResultLocalDataSourceImpl())
                )
             )..fetchMatchesResultFromCubit() ,
      child: BlocConsumer<MatchesResultCubit,MatchesResultState>(

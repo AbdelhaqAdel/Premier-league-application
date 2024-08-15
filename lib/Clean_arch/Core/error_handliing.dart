@@ -5,40 +5,40 @@ abstract class Failure{
   Failure(this.message);
 }
 
-class ServerFailuer extends Failure{
-  ServerFailuer(super.message);
+class ServerFailure extends Failure{
+  ServerFailure(super.message);
 
-  factory ServerFailuer.FromDioError(DioError e){
+  factory ServerFailure.fromDioError(DioError e){
     switch (e.type) {
       case DioErrorType.connectTimeout:
-        return ServerFailuer('Connection timeout with API server');
+        return ServerFailure('Connection timeout with API server');
       case DioErrorType.sendTimeout:
-      return ServerFailuer('Send timeout with API server');
+      return ServerFailure('Send timeout with API server');
 
       case DioErrorType.receiveTimeout:
-      return ServerFailuer('Recieve timeout with API server');
+      return ServerFailure('Receive timeout with API server');
 
       case DioErrorType.response:
-      return ServerFailuer.responseError(e.response!.statusCode!, e.response);
+      return ServerFailure.responseError(e.response!.statusCode!, e.response);
       case DioErrorType.cancel:
-      return ServerFailuer('Request from API was canceld');
+      return ServerFailure('Request from API was canceled');
 
       case DioErrorType.other:
-      return ServerFailuer('opps there was an error, please try again');
+      return ServerFailure('Opps. there was an error, please try again');
     }
   }
 
-  factory ServerFailuer.responseError(int statusCode,dynamic response){
+  factory ServerFailure.responseError(int statusCode,dynamic response){
      if(statusCode==404){ 
-      return ServerFailuer('Your request not found, please try later');
+      return ServerFailure('Your request not found, please try later');
      }else if(statusCode==500){
-      return ServerFailuer('there is a problem with server please try again');
+      return ServerFailure('there is a problem with server please try again');
 
      }else if(statusCode==400||statusCode==401||statusCode==403){
       //---its depend on message from api response
-      return ServerFailuer('Message from Api');
+      return ServerFailure('Message from Api');
      }else{
-      return ServerFailuer('there was an error please try again');
+      return ServerFailure('there was an error please try again');
      }
   }
 

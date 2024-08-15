@@ -20,10 +20,10 @@ class StandingRepoImpl extends StandingRepoAbs{
     }catch(e){
       if(e is DioError){
         print('error -----');
-      return left( ServerFailuer.FromDioError(e));
+      return left( ServerFailure.fromDioError(e));
       }
      print('Errorrrrr---------${e.toString()}');
-      return left(ServerFailuer(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
    

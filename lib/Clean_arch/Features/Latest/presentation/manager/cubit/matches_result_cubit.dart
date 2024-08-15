@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import '../../../domain/entities/matches_resault_entity.dart';
+import '../../../domain/entities/matches_result_entity.dart';
 import '../../../domain/use_cases/matches_result_useCase.dart';
 part 'matches_result_state.dart';
 

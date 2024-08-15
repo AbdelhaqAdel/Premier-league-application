@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:premleague/Clean_arch/Features/Latest/domain/repositories/matches_resault_repo.dart';
 
 import '../../../../Core/error_handliing.dart';
-import '../entities/matches_resault_entity.dart';
+import '../entities/matches_result_entity.dart';
 
 class FetchMatchesResultUseCase extends UseCase<List<MatchesResultEntity>,NoParam>{
   final MatchesResultRepo matchesResultRepo;

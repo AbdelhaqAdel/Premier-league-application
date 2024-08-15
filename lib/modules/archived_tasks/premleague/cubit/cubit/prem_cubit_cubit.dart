@@ -54,7 +54,7 @@ class PremCubitCubit extends Cubit<PremCubitState> {
     ),
   ];
   List<Widget>screens=[
-    test(),
+    LatestScreen(),
     const FavTeam(),
     const SoccerMatch(),
      const Stats(),
@@ -190,6 +190,11 @@ if (kDebugMode) {
         for (var element in Json) {
           matchesResults.add(MatchesResultsModel.fromJson(element));
         }
+
+        print('----------------------');
+        matchesResults.forEach((e){
+          print(e.awayLogo);
+        });
         emit(MatchesResultsSuccessState(matchesResults));
       }}).catchError((onError){
       print(onError.toString());
