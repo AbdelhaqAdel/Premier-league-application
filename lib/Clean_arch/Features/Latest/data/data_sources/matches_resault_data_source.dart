@@ -24,8 +24,6 @@ class MatchesResultRemoteDataSourceImpl extends MatchesResultRemoteDataSource{
     return matchesResult;
   }
 
-
-
   void fillMatchesResultList(Response<dynamic> list) {
     List Json = list.data['response'];
     for (var element in Json) {

@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -181,14 +182,21 @@ Widget matchsResult(MatchesResultEntity matchesResult, context) => Container(
                     height: 8,
                   ),
                   Container(
-                    height: 35,
-                    width: 35,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage('${matchesResult.homeLogoE}'),
-                        fit: BoxFit.cover,
-                      ),
+                   height: 35,
+                   width: 35,
+                    child:  CachedNetworkImage(imageUrl: '${matchesResult.homeLogoE}',
+                    // AspectRatio(
+                    //   aspectRatio: 20/20,
+                    //   child:
+                    //   // fit: BoxFit.fill,
+                    //   ),
                     ),
+                    // decoration: BoxDecoration(
+                    //   image: DecorationImage(
+                    //     image:,
+                    //     fit: BoxFit.cover,
+                    //   ),
+                    // ),
                   ),
                 ],
               ),

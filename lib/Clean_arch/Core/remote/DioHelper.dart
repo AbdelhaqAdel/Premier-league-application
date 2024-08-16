@@ -60,8 +60,7 @@ class DioHelper2{
     ),
 
   ) ;
-  static init(){ //initialization for dio object
-
+  static init(){ //initialization for dio object.
   }
 
   static Future<Response> GetData({
