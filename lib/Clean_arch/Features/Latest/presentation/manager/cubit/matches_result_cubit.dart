@@ -13,7 +13,7 @@ class MatchesResultCubit extends Cubit<MatchesResultState> {
       emit(FetchMatchesResultErrorState(error.message));
     },
         (matchesResult){
-      matchesResult.forEach((element) { print(element.homeNameE);});
+      // matchesResult.forEach((element) { print(element.homeNameE);});
       emit(FetchMatchesResultSuccessState(matchesResult));
             });
   }
