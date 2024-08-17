@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:premleague/Clean_arch/Core/Utils/Strings/app_text.dart';
 import 'package:premleague/Clean_arch/Core/Utils/git_it/standing_table_locator.dart';
 import 'package:premleague/Clean_arch/Features/on_boarding/presentation/pages/onBoardingScreen.dart';
@@ -54,12 +55,19 @@ class MyApp extends StatelessWidget {
       child: BlocConsumer<PremCubitCubit, PremCubitState>(
         listener: (context, state) {},
         builder: (context, state) {
+         return ScreenUtilInit(
+          designSize: const Size(360, 690),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (_ , child) {
           return MaterialApp(
             initialRoute:Routes.initialRoute,
             routes: allRoutes,
             theme:appTheme,
             debugShowCheckedModeBanner: false,
             home: OnBoarding(),
+          );
+          }
           );
         },
       ),

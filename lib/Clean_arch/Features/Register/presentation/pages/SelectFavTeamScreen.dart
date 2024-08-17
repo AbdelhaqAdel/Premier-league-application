@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/Clean_arch/Core/Utils/Strings/app_text.dart';
 import 'package:premleague/Clean_arch/Features/Stats/data/models/StandingsModel.dart';
@@ -40,7 +41,6 @@ class _SelectBestTeamScreenState extends State<SelectBestTeamScreen> {
               children: [
                 Expanded(
                   child: SizedBox(
-                    height: 600,
                     width: double.infinity,
                     child: ConditionalBuilder(
                       condition: bestTeamList.isNotEmpty,
@@ -85,7 +85,7 @@ class _SelectBestTeamScreenState extends State<SelectBestTeamScreen> {
                         NavigationAndFinish(context, const premleague());
                         },
                       child: Container(
-                        height: 50,
+                        height: 45.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),

@@ -5,7 +5,6 @@ import 'package:premleague/Clean_arch/Features/Latest/data/data_sources/matches_
 import 'package:premleague/Clean_arch/Features/Latest/data/data_sources/matches_result_local_data_source.dart';
 import 'package:premleague/Clean_arch/Features/Latest/data/repositories/matches_result_repo_impl.dart';
 import 'package:premleague/Clean_arch/Features/Latest/domain/use_cases/matches_result_useCase.dart';
-import '../../../data/remote/models/MatchesResultsModel.dart';
 import '../../../data/remote/models/MatchsTimeModel.dart';
 import '../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import '../../manager/cubit/matches_result_cubit.dart';

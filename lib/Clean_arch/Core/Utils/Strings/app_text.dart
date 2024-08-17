@@ -1,7 +1,7 @@
 class AppText{
-  static const String onBoardingTextP1='Get start to know who is the heroooo!! ';
+  static const String onBoardingTextP1='Get start to know who is the heroooo!';
   static const String onBoardingTextP2='All news , highlights and stats for you';
-  static const String onBoardingTextP3='Get start to know who is the heroooo!!';
+  //static const String onBoardingTextP3='Get start to know who is the heroooo!';
 
 
 
