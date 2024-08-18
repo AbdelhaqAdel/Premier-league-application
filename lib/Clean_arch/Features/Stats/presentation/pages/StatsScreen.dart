@@ -343,7 +343,7 @@ class Stats extends StatelessWidget {
                                   BoxDecoration(color: HexColor('#570861')),
                               child: Row(
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
                                   Text(
@@ -400,7 +400,7 @@ class Stats extends StatelessWidget {
                               ),
                               height: 550,
                               width: double.infinity,
-                              child:StandingListViewBuilder(),
+                              child:const StandingListViewBuilder(),
                               //  ConditionalBuilder(
                               //   condition: standingCubit.standingRepo.length > 0,
                               //   builder: (context) => ListView.separated(

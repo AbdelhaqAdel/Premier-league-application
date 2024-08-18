@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:premleague/Clean_arch/Features/Login/presentation/pages/UserLogin.dart';
 import 'Latest_Matches/Matches_latest_screen.dart';
 import 'Latest_News/News_LatestScreen.dart';
 class LatestScreen extends StatefulWidget {
@@ -10,8 +12,8 @@ class LatestScreen extends StatefulWidget {
 class _LatestScreenState extends State<LatestScreen> {
   int navbar=1;
   List Screen2=[
-     LatestNewsScreen(),
-     LatestMatches()
+     const LatestNewsScreen(),
+     const LatestMatches()
   ];
   @override
   Widget build(BuildContext context) {
@@ -26,21 +28,19 @@ class _LatestScreenState extends State<LatestScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
 
                     children: [
-                      Container(
-                        child: CircleAvatar(
-                          radius: 30,
-                          child: Image.asset('assets/images/premlogo44.png',color:Color(0xFF17203A),),
-
-                        ),
+                      CircleAvatar(
+                        radius: 30,
+                        child: Image.asset('assets/images/premlogo44.png',color:const Color(0xFF17203A),),
+                      
                       ),
-                      SizedBox(width: 15,),
+                      SizedBox(width: MediaQuery.of(context).size.width/20,),
                       Column(
                         children: [
                           Text(
                             'Premier',
                             style: TextStyle(
                               color: Colors.grey[300],
-                              fontSize: 20,
+                              fontSize: 20.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -48,13 +48,13 @@ class _LatestScreenState extends State<LatestScreen> {
                             'League',
                             style: TextStyle(
                               color: Colors.grey[300],
-                              fontSize: 20,
+                              fontSize: 20.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Padding(
                         padding: const EdgeInsets.only(left: 5.0,top: 10),
                         child: CircleAvatar(
@@ -63,25 +63,23 @@ class _LatestScreenState extends State<LatestScreen> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Image.asset('assets/images/cup1.png',
-
-                                height: 30,
-                                width: 30,
+                                height: 25.h,
+                                width: 25.w,
                               ),
-                              //Icon(Icons.card_giftcard,size:25,color: Colors.grey[300],),
                             )),
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(width: MediaQuery.of(context).size.width/23,),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 12,
+                  height: MediaQuery.of(context).size.height/30,
                 ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child:  Container(
+            child:  SizedBox(
               width: double.infinity,
-              height: 60,
+              height: 40.h,
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -94,8 +92,6 @@ class _LatestScreenState extends State<LatestScreen> {
                           });
                         },
                         child: Container(
-
-
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: navbar == 1 ?HexColor('#570861') : Colors.white.withOpacity(.3),
