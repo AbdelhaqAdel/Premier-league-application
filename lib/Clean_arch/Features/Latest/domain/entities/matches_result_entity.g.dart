@@ -8,7 +8,7 @@ part of 'matches_result_entity.dart';
 
 class MatchesResultEntityAdapter extends TypeAdapter<MatchesResultEntity> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   MatchesResultEntity read(BinaryReader reader) {
@@ -23,13 +23,14 @@ class MatchesResultEntityAdapter extends TypeAdapter<MatchesResultEntity> {
       fields[3] as String?,
       fields[4] as num?,
       fields[5] as num?,
+      fields[6] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, MatchesResultEntity obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.homeNameE)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class MatchesResultEntityAdapter extends TypeAdapter<MatchesResultEntity> {
       ..writeByte(4)
       ..write(obj.scoreHomeE)
       ..writeByte(5)
-      ..write(obj.scoreAwayE);
+      ..write(obj.scoreAwayE)
+      ..writeByte(6)
+      ..write(obj.stateE);
   }
 
   @override

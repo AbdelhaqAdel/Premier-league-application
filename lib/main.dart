@@ -48,9 +48,8 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => PremCubitCubit()
         ..getMatchesTimeData()
-        ..getMatchesResultsData()
         ..getCardsData()
-        ..getScorrersData()
+       // ..getScorrersData()
         ..getAssistsData(),
       child: BlocConsumer<PremCubitCubit, PremCubitState>(
         listener: (context, state) {},

@@ -1,8 +1,8 @@
 //all data that used in UI
 import 'package:hive/hive.dart';
-part 'matches_resault_entity.g.dart';
-@HiveType(typeId: 0)
+part 'matches_result_entity.g.dart';
 
+@HiveType(typeId: 1)
 class MatchesResultEntity{
   @HiveField(0)
   final String? homeNameE;
@@ -16,6 +16,8 @@ class MatchesResultEntity{
   final num? scoreHomeE;
   @HiveField(5)
   final num? scoreAwayE;
+  @HiveField(6)
+  final String? stateE;
 
   MatchesResultEntity(
       this.homeNameE,
@@ -24,5 +26,6 @@ class MatchesResultEntity{
       this.awayLogoE,
       this.scoreHomeE,
       this.scoreAwayE,
+      this.stateE,
       );
 }

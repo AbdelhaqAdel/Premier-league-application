@@ -9,8 +9,12 @@ class MatchesSoccerBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MatchesResultCubit,MatchesResultState>(builder: (context,state){
   if(state is FetchMatchesResultSuccessState){
+    print('-----------------------------------------------');
+    //state.matchesResult.forEach((e){print(e.stateE);});
             return MatchesSoccerListView(matchesSoccer:state.matchesResult);
           }else if(state is FetchMatchesResultErrorState){
+            //     print('-----------------------------------------------');
+            // print(state.error);
             return Text(state.error);
           }else{
             return const Center(child: CircularProgressIndicator());

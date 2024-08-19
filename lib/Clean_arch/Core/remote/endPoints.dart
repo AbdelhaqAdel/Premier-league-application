@@ -1,7 +1,7 @@
 const SCORERS='v4/competitions/PL/scorers';
 const STANDINGS ='v4/competitions/PL/standings?season=2024';
 const ASSISTS='players/topassists?league=39&season=2022';
-const MATCHSTIME='fixtures?season=2024&league=39&from=2024-08-17&to=2024-08-24&status=NS';
+const MATCHSTIME='fixtures?season=2024&league=39&from=2024-08-18&to=2024-08-24&status=NS';
 const CARDS='players/topyellowcards?league=39&season=2022';
 const MATCHESRESULTS = 'fixtures?status=FT&season=2024&from=2024-08-16&to=2024-08-25&league=39';
 const SOCCER ='fixtures?season=2022&league=39&from=2023-05-20&to=2023-05-25';

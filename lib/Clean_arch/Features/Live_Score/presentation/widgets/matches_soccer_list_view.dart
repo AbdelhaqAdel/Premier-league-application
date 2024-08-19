@@ -9,8 +9,8 @@ class MatchesSoccerListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
      physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) =>
-          SoccerMatchResult(matchesSoccer![index+1],context),
+      itemBuilder: (context, index) {
+        return  SoccerMatchResult(matchesSoccer![index+1],context);},
       separatorBuilder: (context, index) =>
           const SizedBox(height: 10),
       itemCount: matchesSoccer!.length-1);

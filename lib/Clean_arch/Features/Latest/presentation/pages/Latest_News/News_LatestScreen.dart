@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:premleague/Clean_arch/Core/Utils/extentions/build_context_extention.dart';
+import 'package:premleague/Clean_arch/Core/Utils/extention/build_context_extention.dart';
 import '../../../../../Core/Utils/components.dart';
 import '../../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import '../../widgets/news_latest_custom_widget.dart';

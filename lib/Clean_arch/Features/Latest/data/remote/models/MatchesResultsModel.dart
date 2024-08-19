@@ -19,7 +19,7 @@ class MatchesResultsModel extends MatchesResultEntity{
       this.scoreHome,
       this.scoreAway,
       this.state,
-}) : super(homeName, homeLogo??'', awayName, awayLogo??'', scoreHome, scoreAway);
+}) : super(homeName, homeLogo??'', awayName, awayLogo??'', scoreHome, scoreAway,state??'');
 
    factory MatchesResultsModel.fromJson(Map<String, dynamic>json){
      return MatchesResultsModel(
