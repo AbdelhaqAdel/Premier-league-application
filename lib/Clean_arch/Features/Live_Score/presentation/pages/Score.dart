@@ -1,409 +1,440 @@
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
-import '../../../Latest/data/remote/models/MatchesResultsModel.dart';
-import '../../../Latest/data/remote/models/MatchsTimeModel.dart';
-import '../../../../../modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import '../../../Latest/presentation/widgets/matches_custom_widgets.dart';
+import 'package:premleague/Clean_arch/Core/Utils/extention/build_context_extention.dart';
+import 'package:premleague/Clean_arch/Features/Latest/data/data_sources/matches_resault_data_source.dart';
+import 'package:premleague/Clean_arch/Features/Latest/data/data_sources/matches_result_local_data_source.dart';
+import 'package:premleague/Clean_arch/Features/Latest/data/repositories/matches_result_repo_impl.dart';
+import 'package:premleague/Clean_arch/Features/Latest/domain/entities/matches_result_entity.dart';
+import 'package:premleague/Clean_arch/Features/Latest/domain/use_cases/matches_result_useCase.dart';
+import 'package:premleague/Clean_arch/Features/Latest/presentation/manager/cubit/matches_result_cubit.dart';
+import 'package:premleague/Clean_arch/Features/Live_Score/presentation/widgets/mathce_soccer_List_builder.dart';
 
 class SoccerMatch extends StatelessWidget {
   const SoccerMatch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PremCubitCubit, PremCubitState>(
-        listener: (context, state) {},
+   // final cubit = BlocProvider.of<MatchesResultCubit>(context);
+   
+
+    return BlocProvider(
+      create: (context) => MatchesResultCubit(
+          FetchMatchesResultUseCase(
+                   //MatchesResultRepoImpl.getInstance()
+                   MatchesResultRepoImpl(MatchesResultRemoteDataSourceImpl(),MatchesResultLocalDataSourceImpl())
+               )
+            )..fetchMatchesResultFromCubit() ,
+      
+      child: BlocBuilder<MatchesResultCubit, MatchesResultState>(
         builder: (context, state) {
-          List <MatchesResultsModel> matchesResultList =PremCubitCubit.get(context).matchesResults;
-          // List <MatchTimeModel> matchesTime =PremCubitCubit.get(context).matchsTime;
+            if(state is FetchMatchesResultLoadingState){
+            return const Center(child: CircularProgressIndicator());
+          }
+          else if(state is FetchMatchesResultSuccessState){
+           List<MatchesResultEntity> matchesResultList =
+        state.matchesResult;
           return Scaffold(
-            backgroundColor:Colors.transparent,
-            body:
+            backgroundColor: Colors.transparent,
+            body: Padding(
+              padding: const EdgeInsets.all(0),
+              child: Column(
+                children: [
                   Padding(
-                    padding: const EdgeInsets.all(0),
-                    child: Column(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        //mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                                width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                //mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 40,left: 5,bottom: 15),
-                                    child: Row(
-
-                                      children: [
-                                        Container(
-                                          height: 40,
-                                          width: 80,
-                                          decoration: BoxDecoration(
-                                            color: Colors.purple.withOpacity(.3),
-                                            borderRadius: BorderRadius.circular(15),
-                                            border: Border.all(
-                                              width: 2,
-                                              color: HexColor('#570861'),
-                                            ),
-                                          ),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            crossAxisAlignment: CrossAxisAlignment.end,
-                                            children: [
-                                              Center(
-                                                child: Text('Live',
-                                                  style:  TextStyle(
-                                                      color: Colors.grey[300],
-                                                      fontSize: 26
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 4,),
-                                              const Padding(
-                                                padding: EdgeInsets.only(bottom: 6.0),
-                                                child: Icon(Icons.album_outlined,
-                                                color: Colors.green,
-                                                  size: 13,
-                                                ),
-                                              )
-
-                                            ],
-                                          ),
-                                        ),
-                                        const SizedBox(width: 5,),
-                                        // Text('Score',
-                                        //   style: TextStyle(
-                                        //     color: Colors.grey[300],
-                                        //     fontSize: 20
-                                        //   )
-                                        // ),
-                                      ],
+                            padding: const EdgeInsets.only(
+                                top: 40, left: 5, bottom: 15),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 40,
+                                  width: 80,
+                                  decoration: BoxDecoration(
+                                    color: Colors.purple.withOpacity(.3),
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(
+                                      width: 2.w,
+                                      color: HexColor('#570861'),
                                     ),
                                   ),
-                                  Container(
-                                    //width: double.infinity,
-                                    child: Stack(
-                                      alignment: Alignment.topCenter,
-                                      children:[
-
-                                        SizedBox(
-                                          height: 217,
-                                          width: double.infinity-40,
-                                          child: Container(
-                                          //  width: 330,
-                                            decoration: BoxDecoration(
-                                              gradient: LinearGradient(
-                                                  begin: Alignment.topLeft,
-                                                  end: Alignment.topRight,
-                                                  colors: [
-                                                    HexColor('#b01570').withOpacity(.3),
-                                                    Colors.deepPurple.withOpacity(.3)
-                                                  ]),
-                                              borderRadius: BorderRadius.circular(10),
-                                            ),
-                                          ),
-
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Center(
+                                        child: Text(
+                                          'Live',
+                                          style: TextStyle(
+                                              color: Colors.grey[300],
+                                              fontSize: 26),
                                         ),
-                                        Container(
-                                          height: 210,
-                                          width: double.infinity-20,
-                                          child: Container(
-                                            width: 350,
-                                            decoration: BoxDecoration(
-                                              gradient: LinearGradient(
-                                                  begin: Alignment.topLeft,
-                                                  end: Alignment.topRight,
-                                                  colors: [
-                                                    HexColor('#b01570').withOpacity(.5),
-                                                    Colors.deepPurple.withOpacity(.5)
-                                                  ]),
-                                              borderRadius: BorderRadius.circular(10),
-                                            ),
-                                          ),
-
+                                      ),
+                                      const SizedBox(
+                                        width: 4,
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.only(bottom: 6.0),
+                                        child: Icon(
+                                          Icons.album_outlined,
+                                          color: Colors.green,
+                                          size: 13,
                                         ),
-                                        Container(
-
-                                        height: 204,
-                                        //width: double.infinity,
-                                        child: Container(
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                                begin: Alignment.topLeft,
-                                                end: Alignment.topRight,
-                                                colors: [
-                                                  HexColor('#b01570'),
-                                                  Colors.deepPurple
-                                                ]),
-                                            borderRadius: BorderRadius.circular(20),
-                                          ),
-                                          child:
-                                          Container(
-                                            child: Padding(
-                                              padding:
-                                              const EdgeInsets.only(left: 4.0, right: 4, top: 12, bottom: 0),
-                                              child: Column(
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                // Text('Score',
+                                //   style: TextStyle(
+                                //     color: Colors.grey[300],
+                                //     fontSize: 20
+                                //   )
+                                // ),
+                              ],
+                            ),
+                          ),
+                          Stack(
+                              alignment: Alignment.topCenter,
+                              children: [
+                                SizedBox(
+                                  height: context.screenHeight/3.8,
+                                  width: double.infinity - 40,
+                                  child: Container(
+                                    //  width: 330,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.topRight,
+                                          colors: [
+                                            HexColor('#b01570')
+                                                .withOpacity(.3),
+                                            Colors.deepPurple.withOpacity(.3)
+                                          ]),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: context.screenHeight/4,
+                                  width: double.infinity - 20,
+                                  child: Container(
+                                    width: 350,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.topRight,
+                                          colors: [
+                                            HexColor('#b01570')
+                                                .withOpacity(.5),
+                                            Colors.deepPurple.withOpacity(.5)
+                                          ]),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: context.screenHeight/4.2,
+                                  //width: double.infinity,
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.topRight,
+                                          colors: [
+                                            HexColor('#b01570'),
+                                            Colors.deepPurple
+                                          ]),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Padding(
+                                      padding:  EdgeInsets.only(
+                                          left: 4.0.w,
+                                          right: 4.w,
+                                          top: 12.h,
+                                          bottom: 0),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Column(
                                                 children: [
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      Column(
-                                                        children: [
-                                                          Container(
-                                                            width: 150,
-                                                            child: Center(
-                                                              child: Text(
-                                                                '${matchesResultList[0].homeName}',
-                                                                maxLines: 1,
-                                                                style: TextStyle(
-                                                                  fontSize: 25,
-                                                                  color: Colors.grey[300],
-                                                                  fontWeight: FontWeight.bold,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 8,
-                                                          ),
-                                                          Container(
-                                                            height: 35,
-                                                            width: 35,
-                                                            decoration: BoxDecoration(
-                                                              image: DecorationImage(
-                                                                image: NetworkImage('${matchesResultList[0].homeLogo}'),
-                                                                fit: BoxFit.cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      SizedBox(
-                                                        width: 6,
-                                                      ),
-                                                      Container(
-                                                        height: 40,
-                                                        width: 40,
-                                                        decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(40),
-                                                          border: Border.all(
-                                                            color: Color(0xFF17203A),
-                                                          ),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisAlignment: MainAxisAlignment.center,
-                                                          children: [
-                                                            Text(
-                                                              '90',
-                                                              style: TextStyle(
-                                                                fontWeight: FontWeight.bold,
-                                                                fontSize: 20,
-                                                                color: Colors.grey[300],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        width: 10,
-                                                      ),
-                                                      Column(
-                                                        children: [
-                                                          Container(
-                                                            width: 150,
-                                                            child: Center(
-                                                              child: Text(
-                                                                '${matchesResultList[0].awayName}',
-                                                                maxLines: 1,
-                                                                //overflow:TextOverflow.ellipsis ,
-                                                                style: TextStyle(
-                                                                  fontSize: 25,
-                                                                  color: Colors.grey[300],
-                                                                  fontWeight: FontWeight.bold,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 8,
-                                                          ),
-                                                          Container(
-                                                            height: 35,
-                                                            width: 35,
-                                                            decoration: BoxDecoration(
-                                                              image: DecorationImage(
-                                                                image: NetworkImage('${matchesResultList[0].awayLogo}'),
-                                                                fit: BoxFit.cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
                                                   SizedBox(
-                                                    height: 15,
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      Text('40 %',
-                                                      style: TextStyle(
-                                                        color: Colors.grey[300],
-                                                        fontSize: 16,
-                                                      ),
-                                                      ),
-                                                    SizedBox(width: 30,),
-                                                    Container(
-                                                          height: 45,
-                                                          width: 120,
-                                                          decoration: BoxDecoration(
-                                                            borderRadius: BorderRadius.circular(15),
-                                                            border: Border.all(
-                                                              color: Color(0xFF17203A),
-                                                            ),
-                                                          ),
-                                                          child: Row(
-                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                            children: [
-                                                              Text(
-                                                                '${matchesResultList[0].scoreHome}',
-                                                                style: TextStyle(
-                                                                  fontWeight: FontWeight.bold,
-                                                                  fontSize: 30,
-                                                                  color: Colors.grey[300],
-                                                                ),
-                                                              ),
-                                                              SizedBox(
-                                                                width: 10,
-                                                              ),
-                                                              Container(
-                                                                height: 20,
-                                                                width: 20,
-                                                                decoration: BoxDecoration(
-                                                                  image: DecorationImage(
-                                                                    image: AssetImage('assets/images/ball1.png'),
-                                                                    fit: BoxFit.cover,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              SizedBox(
-                                                                width: 10,
-                                                              ),
-                                                              Text(
-                                                                '${matchesResultList[0].scoreAway}',
-                                                                style: TextStyle(
-                                                                  color: Colors.grey[300],
-                                                                  fontWeight: FontWeight.bold,
-                                                                  fontSize: 30,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                   SizedBox(width: 30,),
-                                                      Text('60 %',
+                                                    width: 150,
+                                                    child: Center(
+                                                      child: Text(
+                                                        '${matchesResultList[0].homeNameE}',
+                                                        maxLines: 1,
                                                         style: TextStyle(
-                                                          color: Colors.grey[300],
-                                                          fontSize: 16,
+                                                          fontSize: 25.sp,
+                                                          color: Colors
+                                                              .grey[300],
+                                                          fontWeight:
+                                                              FontWeight
+                                                                  .bold,
                                                         ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                                  Container(
-
-                                                    height: 35,
-                                                    width: 75,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFF17203A),
-                                                      borderRadius: BorderRadius.circular(10),
-                                                      border: Border.all(
-                                                        color: Colors.grey,
                                                       ),
                                                     ),
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                      children: [
-                                                        Text(
-                                                          '${matchesResultList[0].state}',
-                                                          style: TextStyle(
-                                                            fontWeight: FontWeight.bold,
-                                                            fontSize: 15,
-                                                            color: Colors.grey[300],
-                                                          ),
-                                                        ),
-                                                      ],
+                                                  ),
+                                                  SizedBox(
+                                                    height: 4.h,
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                    width: 35,
+                                                    decoration:
+                                                        BoxDecoration(
+                                                      image:
+                                                          DecorationImage(
+                                                        image: NetworkImage(
+                                                            '${matchesResultList[0].homeLogoE}'),
+                                                        fit: BoxFit.cover,
+                                                      ),
                                                     ),
                                                   ),
                                                 ],
                                               ),
+                                              SizedBox(
+                                                width: 6,
+                                              ),
+                                              Container(
+                                                height: 40,
+                                                width: 40,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          40),
+                                                  border: Border.all(
+                                                    color:
+                                                        const Color(0xFF17203A),
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .center,
+                                                  children: [
+                                                    Text(
+                                                      '90',
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20,
+                                                        color: Colors
+                                                            .grey[300],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 10.w,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  Container(
+                                                    width: 150,
+                                                    child: Center(
+                                                      child: Text(
+                                                        '${matchesResultList[0].awayNameE}',
+                                                        maxLines: 1,
+                                                        //overflow:TextOverflow.ellipsis ,
+                                                        style: TextStyle(
+                                                          fontSize: 25,
+                                                          color: Colors
+                                                              .grey[300],
+                                                          fontWeight:
+                                                              FontWeight
+                                                                  .bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.h,
+                                                  ),
+                                                  Container(
+                                                    height: 30.h,
+                                                    width: 30.w,
+                                                    decoration:
+                                                        BoxDecoration(
+                                                      image:
+                                                          DecorationImage(
+                                                        image: NetworkImage(
+                                                            '${matchesResultList[0].awayLogoE}'),
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                           SizedBox(
+                                            height: 10.h,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                '40 %',
+                                                style: TextStyle(
+                                                  color: Colors.grey[300],
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: context.w(30),
+                                              ),
+                                              Container(
+                                                height: 40.h,
+                                                width: 100.w,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15),
+                                                  border: Border.all(
+                                                    color:
+                                                        const Color(0xFF17203A),
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .center,
+                                                  children: [
+                                                    Text(
+                                                      '${matchesResultList[0].scoreHomeE}',
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 30.sp,
+                                                        color: Colors
+                                                            .grey[300],
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      width:  context.w(10),
+                                                    ),
+                                                    Container(
+                                                      height: 15.h,
+                                                      width: 15.w,
+                                                      decoration:
+                                                          const BoxDecoration(
+                                                        image:
+                                                            DecorationImage(
+                                                          image: AssetImage(
+                                                              'assets/images/ball1.png'),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      width: context.w(10),
+                                                    ),
+                                                    Text(
+                                                      '${matchesResultList[0].scoreAwayE}',
+                                                      style: TextStyle(
+                                                        color: Colors
+                                                            .grey[300],
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 30.sp,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: context.w(30),
+                                              ),
+                                              Text(
+                                                '60 %',
+                                                style: TextStyle(
+                                                  color: Colors.grey[300],
+                                                  fontSize: 16.sp,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: context.w(7),
+                                          ),
+                                          Container(
+                                                              
+                                            height: 30.h,
+                                            width: 65.w,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFF17203A),
+                                              borderRadius: BorderRadius.circular(10),
+                                              border: Border.all(
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  '${matchesResultList[0].stateE}',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15.sp,
+                                                    color: Colors.grey[300],
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                        ),
-
+                                        ],
                                       ),
-                                                                ]
                                     ),
                                   ),
-
-                                ],
-                              ),
-                            ),
-                          ),
-
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child:
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(7),
-                                    ),
-
-                                         child:  MediaQuery.removePadding(
-                                            removeTop: true,
-                                            context: context,
-                                            child:  ConditionalBuilder(
-                                                  condition: matchesResultList.length >0 ,
-                                                 builder: (context) =>  ListView.separated(
-                                                     physics: BouncingScrollPhysics(),
-                                                      itemBuilder: (context, index) =>
-                                                          SoccerMatchResult(matchesResultList[index+1],context),
-                                                      separatorBuilder: (context, index) =>
-                                                          SizedBox(height: 10),
-                                                      itemCount: matchesResultList.length-1),
-                                                  fallback: (context) =>
-                                                      Center(child: CircularProgressIndicator()),
-                                                ),
-                                              )
-
-                                          ),
-
-
-                                    )
-                                  ),
-
-
-
-
+                                ),
+                              ]),
                         ],
                       ),
-                   
+                    ),
                   ),
-
+                  Expanded(
+                      child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7),
+                        ),
+                        child: MediaQuery.removePadding(
+                          removeTop: true,
+                          context: context,
+                          child: const MatchesSoccerBuilder(),
+                        )),
+                  )),
+                ],
+              ),
+            ),
           );
-        },
-      );
+        }else{
+          return const Text('error');
+        }
+        }
+      ),
+    );
   }
 }
 

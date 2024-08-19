@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../../../Core/Utils/components.dart';
 import '../pages/LatestScreens/AllnewsScreen.dart';
@@ -79,9 +80,7 @@ Widget buildArticleItem(Map newsList, context) => GestureDetector(
   ),
 );
 
-Widget buildVideosItem(Map VideoList, context, int index) => Padding(
-  padding: const EdgeInsets.only(left: 8.0, right: 8),
-  child: Container(
+Widget buildVideosItem(Map videoList, context, int index) =>  Container(
     decoration: BoxDecoration(
       color: Colors.grey[600],
       borderRadius: BorderRadius.circular(10),
@@ -89,41 +88,39 @@ Widget buildVideosItem(Map VideoList, context, int index) => Padding(
 
     child: Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(0.0),
-          child: Container(
+         Container(
             // width: 360,
-            height: 270,
+            height: MediaQuery.of(context).size.height/3,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               // borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: NetworkImage('${VideoList['image']}'),
+                image: NetworkImage('${videoList['image']}'),
                 fit: BoxFit.cover,
                 // image: NetworkImage('${article['urlToImage']}'),
               ),
             ),
           ),
-        ),
+        
         Padding(
-          padding: const EdgeInsets.only(top: 14.0, left: 22, bottom: 10,right: 5),
-          child: Container(
-            height: 60,
+          padding:const EdgeInsets.all(10),
+          child: SizedBox(
+            height: 50.h,
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               //  crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  width: 260,
+                SizedBox(
+                  width: 220.h,
                   child: Text(
-                    '${VideoList['title']}',
+                    '${videoList['title']}',
                     style: Theme.of(context).textTheme.bodyLarge,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 // SizedBox(width: 225,),
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0),
@@ -152,7 +149,7 @@ Widget buildVideosItem(Map VideoList, context, int index) => Padding(
       ],
     ),
     // SizedBox(width: 20,),
-  ),
+  );
 
   // Container(
   //   decoration:BoxDecoration(
@@ -187,4 +184,4 @@ Widget buildVideosItem(Map VideoList, context, int index) => Padding(
   //     ],
   //   ),
   // ),
-);
+

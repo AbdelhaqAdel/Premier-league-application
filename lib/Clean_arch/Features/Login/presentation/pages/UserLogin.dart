@@ -1,9 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:premleague/Clean_arch/Core/Utils/Strings/app_text.dart';
 import 'package:premleague/Clean_arch/premier.dart';
@@ -11,16 +9,16 @@ import 'package:premleague/Clean_arch/Features/Register/presentation/pages/UserR
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
 import 'package:premleague/Clean_arch/Core/Utils/Constants.dart';
 import 'package:premleague/Clean_arch/Core/local/cache_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../Core/Utils/components.dart';
-import '../manager/Login Cubit/login_cubit.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
 
 class UserLogin extends StatelessWidget {
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  UserLogin({super.key});
   @override
   Widget build(BuildContext context) {
     return  BlocConsumer<PremCubitCubit, PremCubitState>(
@@ -28,9 +26,9 @@ class UserLogin extends StatelessWidget {
         if (state is shopLoginSuccessState) {
           if (state.loginmodel.status!) {
             print(state.loginmodel.message);
-            PremCubitCubit.get(context).tokenn=state.loginmodel?.data?.token;
+            PremCubitCubit.get(context).tokenn=state.loginmodel.data?.token;
             print('/////////////////////');
-            print('token is  ${state.loginmodel?.data?.token}');
+            print('token is  ${state.loginmodel.data?.token}');
              CacheHelper.savaData(key: 'token', value: state.loginmodel.data?.token);
              print('///////////////////////');
              Token=CacheHelper.getAllData(key:'token');
@@ -43,7 +41,7 @@ class UserLogin extends StatelessWidget {
                 timeInSecForIosWeb: 5,
                 backgroundColor: Colors.green,
                 textColor: Colors.white,
-                fontSize: 16.0);
+                fontSize: 16.0.sp);
           } else {
             print(state.loginmodel.message);
             Fluttertoast.showToast(
@@ -53,7 +51,7 @@ class UserLogin extends StatelessWidget {
                 timeInSecForIosWeb: 5,
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
-                fontSize: 16.0);
+                fontSize: 16.0.sp);
           }
         }
       }, builder: (context, state) {
@@ -70,25 +68,16 @@ class UserLogin extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Login',
+                          'Login Now',
                           style: Theme.of(context)
                               .textTheme
                               .headlineMedium
                               ?.copyWith(color: Colors.black),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: MediaQuery.of(context).size.width/10,
                         ),
-                        Text(
-                          'Login now',
-                          style:
-                              Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: Colors.grey,
-                                  ),
-                        ),
-                        const SizedBox(
-                          height: 40,
-                        ),
+                    
                         TextFormField(
                           controller: emailController,
                             keyboardType:TextInputType.emailAddress,
@@ -100,16 +89,17 @@ class UserLogin extends StatelessWidget {
                             },
                           decoration: InputDecoration(
                             labelText:'Email Address',
-                            prefixIcon:Icon(Icons.email_outlined,),
-                            suffixIcon: Icons.email_outlined !=null ? IconButton(onPressed: (){
+                            prefixIcon:const Icon(Icons.email_outlined,),
+                            // ignore: unnecessary_null_comparison
+                            suffixIcon: IconButton(onPressed: (){
                             },
-                              icon: Icon(Icons.email_outlined,),
-                            ):null,
-                            border: OutlineInputBorder(),
+                              icon: const Icon(Icons.email_outlined,),
+                            ),
+                            border: const OutlineInputBorder(),
                           ),
                         ),
-                        const SizedBox(
-                          height: 15,
+                         SizedBox(
+                          height:  MediaQuery.of(context).size.width/20,
                         ),
                         TextFormField(
                           controller: passwordController,
@@ -118,23 +108,23 @@ class UserLogin extends StatelessWidget {
                           validator: (value) {
                             if (value!.isEmpty) {
                               return AppText.passValidation;
-                            } else
+                            } 
                               return null;
                           },
                           decoration: InputDecoration(
                             labelText:'Password',
                             prefixIcon:Icon(PremCubitCubit.get(context).suffix,),
-                            suffixIcon: PremCubitCubit.get(context).suffix !=null ? IconButton(onPressed: (){
+                            suffixIcon:  IconButton(onPressed: (){
                               PremCubitCubit.get(context)
                                   .changePasswordVisibility();
                             },
                               icon: Icon(PremCubitCubit.get(context).suffix,),
-                            ):null,
-                            border: OutlineInputBorder(),
+                            ),
+                            border: const OutlineInputBorder(),
                           ),
                         ),
-                        const SizedBox(
-                          height: 30,
+                         SizedBox(
+                          height:  MediaQuery.of(context).size.width/20,
                         ),
                         ConditionalBuilder(
                           condition: state is! shopLoginLoadingState,
@@ -146,9 +136,9 @@ class UserLogin extends StatelessWidget {
                                   password: passwordController.text,
                                 );
                                 PremCubitCubit.get(context).IsUserLogin(isLogin: true);
-                                print(PremCubitCubit.get(context).isLogin);
-                                print(emailController.text);
-                                print(passwordController.text);
+                                // print(PremCubitCubit.get(context).isLogin);
+                                // print(emailController.text);
+                                // print(passwordController.text);
                                 //  NavigateTo(context, premleague());
                                 //   print(state.toString());
                               }
@@ -157,16 +147,19 @@ class UserLogin extends StatelessWidget {
                             isUPpercase: true,
                           ),
                           fallback: (context) =>
-                              Center(child: CircularProgressIndicator()),
+                              const Center(child: CircularProgressIndicator()),
                         ),
                         SizedBox(
-                          height: 15,
+                          height:MediaQuery.of(context).size.width/25,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                            AppText.loginDonNotHaveAcc
+                            const Text(
+                            AppText.loginDonNotHaveAcc,
+                            style: TextStyle(
+                              color: Colors.black
+                            ),
                             ),
                             defaultTextButton(
                                 function: () {

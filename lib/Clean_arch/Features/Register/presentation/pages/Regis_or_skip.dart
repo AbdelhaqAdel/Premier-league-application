@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:premleague/Clean_arch/Config/Theme/Color.dart';
 import 'package:premleague/Clean_arch/Core/Utils/Strings/app_text.dart';
@@ -17,98 +17,95 @@ class RegisOrSkip extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.registerOrSkipBckgColor,
-        title: const Text(AppText.registerOrSkip,
+        title:  Text(AppText.registerOrSkip,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 17,
+            fontSize: 15.sp,
           ),),
       ),
-      body: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 5, right: 8.0, left: 8, bottom: 8),
-                child: GestureDetector(
-                  onTap: (){NavigateTo(context, UserLogin());},
-                  child: Container(
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: HexColor('#570861'),
-                    ),
-                    child: const Center(child: Text('Login',
-                      style: TextStyle(
-                        color:Colors.white,
-                      ),
-                    )),
-                  ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 5, right: 8.0, left: 8, bottom: 8),
+            child: GestureDetector(
+              onTap: (){NavigateTo(context, UserLogin());},
+              child: Container(
+                height:  40.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: HexColor('#570861'),
                 ),
-
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 5, right: 8.0, left: 8, bottom: 8),
-                child: GestureDetector(
-                  onTap: (){NavigateTo(context, UserRegister());},
-                  child: Container(
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: HexColor('#570861'),
-                    ),
-                    child: const Center(child: Text('Register',
-                      style: TextStyle(
-                        color:Colors.white,
-                      ),
-                    )),
+                child: const Center(child: Text('Login',
+                  style: TextStyle(
+                    color:Colors.white,
                   ),
-                ),
-
+                )),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 5, right: 8.0, left: 8, bottom: 8),
-                child:
-                GestureDetector(
-
-                    onTap: (){
-                      PremCubitCubit.get(context).getStandingsData();
-                      NavigateTo(context, (const SelectBestTeamScreen()));
-                      },
-                    child: Container(
-                      height: 50,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color:Colors.grey[500]?.withOpacity(.6),
-                      ),
-                      child: const Row(
-                         children: [
-                           SizedBox(width: 170,),
-                          Center(child: Text('Later',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color:Colors.black,
-                            ),
-                          )),
-                          Spacer(),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.keyboard_double_arrow_right),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-
-              ),
-            ],
+            ),
+      
           ),
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 5, right: 8.0, left: 8, bottom: 8),
+            child: GestureDetector(
+              onTap: (){NavigateTo(context, UserRegister());},
+              child: Container(
+                height:  40.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: HexColor('#570861'),
+                ),
+                child: const Center(child: Text('Register',
+                  style: TextStyle(
+                    color:Colors.white,
+                  ),
+                )),
+              ),
+            ),
+      
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 5, right: 8.0, left: 8, bottom: 8),
+            child:
+            GestureDetector(
+      
+                onTap: (){
+                  PremCubitCubit.get(context).getStandingsData();
+                  NavigateTo(context, (const SelectBestTeamScreen()));
+                  },
+                child: Container(
+                  height: 40.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color:Colors.grey[500]?.withOpacity(.6),
+                  ),
+                  child: const Row(
+                     children: [
+                     Spacer(),
+                       Text('Later',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color:Colors.black,
+                        ),
+                      ),
+                      Spacer(),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.keyboard_double_arrow_right),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+      
+          ),
+        ],
       ),
     );
   }

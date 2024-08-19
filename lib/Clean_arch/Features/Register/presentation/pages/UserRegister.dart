@@ -1,32 +1,19 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:premleague/Clean_arch/premier.dart';
-import 'package:premleague/Clean_arch/Features/Register/presentation/pages/UserRegister.dart';
 import 'package:premleague/Clean_arch/Features/Register/presentation/pages/SelectFavTeamScreen.dart';
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
-import 'package:premleague/Clean_arch/Core/Utils/Constants.dart';
-import 'package:premleague/Clean_arch/Core/local/cache_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../Core/Utils/components.dart';
-import '../../../Login/presentation/manager/Login Cubit/login_cubit.dart';
-//import 'package:fluttertoast/fluttertoast.dart';
-
 class UserRegister extends StatelessWidget {
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
-  var phoneController = TextEditingController();
-  var nameController = TextEditingController();
-  var imageController = TextEditingController();
-
-  var _formKey = GlobalKey<FormState>();
-  //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  // var formKey = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final phoneController = TextEditingController();
+  final nameController = TextEditingController();
+  final imageController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  UserRegister({super.key});
   @override
   Widget build(BuildContext context) {
     return  BlocConsumer<PremCubitCubit, PremCubitState>(
@@ -81,21 +68,21 @@ class UserRegister extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'REGISTER',
+                        'REGISTER Now',
                         style: Theme.of(context)
                             .textTheme.headlineMedium
                             ?.copyWith(color: Colors.black),
                       ),
                       SizedBox(
-                        height: 20,
+                        height:  MediaQuery.of(context).size.width/10,
                       ),
-                      Text(
-                        'Register now',
-                        style:
-                        Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Colors.grey,
-                        ),
-                      ),
+                      // Text(
+                      //   'Register now',
+                      //   style:
+                      //   Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      //     color: Colors.grey,
+                      //   ),
+                      // ),
                       TextFormField(
                         controller: nameController,
                         keyboardType:TextInputType.emailAddress,
@@ -107,16 +94,16 @@ class UserRegister extends StatelessWidget {
                         },
                         decoration: InputDecoration(
                           labelText:'User name',
-                          prefixIcon:Icon(Icons.person,),
-                          suffixIcon: Icons.person !=null ? IconButton(onPressed: (){
+                          prefixIcon:const Icon(Icons.person,),
+                          suffixIcon: IconButton(onPressed: (){
                           },
-                            icon: Icon(Icons.person,),
-                          ):null,
-                          border: OutlineInputBorder(),
+                            icon: const Icon(Icons.person,),
+                          ),
+                          border: const OutlineInputBorder(),
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height:MediaQuery.of(context).size.width/25,
                       ),
                       TextFormField(
                         controller: emailController,
@@ -130,15 +117,15 @@ class UserRegister extends StatelessWidget {
                         decoration: InputDecoration(
                           labelText:'Email Address',
                           prefixIcon:Icon(Icons.email_outlined,),
-                          suffixIcon: Icons.email_outlined !=null ? IconButton(onPressed: (){
+                          suffixIcon:IconButton(onPressed: (){
                           },
                             icon: Icon(Icons.email_outlined,),
-                          ):null,
+                          ),
                           border: OutlineInputBorder(),
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height:  MediaQuery.of(context).size.width/25,
                       ),
                       TextFormField(
                         controller: passwordController,
@@ -181,7 +168,7 @@ class UserRegister extends StatelessWidget {
                         // },
                       ),
                       SizedBox(
-                        height: 15,
+                        height:  MediaQuery.of(context).size.width/25,
                       ),
                       TextFormField(
                         controller: phoneController,
@@ -203,7 +190,7 @@ class UserRegister extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height:  MediaQuery.of(context).size.width/25,
                       ),
                       TextFormField(
                         controller: imageController,
@@ -225,7 +212,7 @@ class UserRegister extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: MediaQuery.of(context).size.width/15,
                       ),
                       ConditionalBuilder(
                         condition: state is! shopRegisterLoadingState,
@@ -246,16 +233,16 @@ class UserRegister extends StatelessWidget {
                               //  NavigateTo(context, premleague());
                               //   print(state.toString());
                             }
+                        PremCubitCubit.get(context).getStandingsData();
+
                           },
                           text: 'register',
                           isUPpercase: true,
                         ),
                         fallback: (context) =>
-                            Center(child: CircularProgressIndicator()),
+                            const Center(child: CircularProgressIndicator()),
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
+                    
 
                     ]),
               ),

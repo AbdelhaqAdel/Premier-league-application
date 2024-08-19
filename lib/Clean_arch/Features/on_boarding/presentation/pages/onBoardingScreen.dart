@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:premleague/Clean_arch/Config/Theme/Color.dart';
 import 'package:premleague/Clean_arch/Core/Utils/Strings/app_text.dart';
@@ -15,20 +16,20 @@ class OnBoarding extends StatefulWidget {
 }
 class _OnBoardingState extends State<OnBoarding> {
   bool islast = false;
-  bool ismiddle =false;
+ // bool ismiddle =false;
   List<boardingModel> boarding = [
     boardingModel(
         image: (AppImages.onBoardingImagesP1),
-        title: 'Premir League',
+        title: 'Premier League',
         body: AppText.onBoardingTextP1),
     boardingModel(
         image: (AppImages.onBoardingImagesP2),
-        title: 'on board 2 title',
+        title: 'Get start...',
         body: AppText.onBoardingTextP2),
-    boardingModel(
-        image: (AppImages.onBoardingImagesP3),
-        title: 'All Done',
-        body:AppText.onBoardingTextP3 ),
+    // boardingModel(
+    //     image: (AppImages.onBoardingImagesP3),
+    //     title: 'All Done',
+    //     body:AppText.onBoardingTextP3 ),
   ];
 
   var boardcontroller = PageController();
@@ -62,27 +63,28 @@ class _OnBoardingState extends State<OnBoarding> {
                       setState(() {
                         islast = true;
                       });
-                    } else if(index == boarding.length - 2)
-                    {
-                      setState(() {
-                        ismiddle = true;
-                      });
-                    }
+                     }
+                    // else if(index == boarding.length - 2)
+                    // {
+                    //   setState(() {
+                    //     ismiddle = true;
+                    //   });
+                    // }
                     else{
                       setState(() {
                         islast = false;
-                        ismiddle = false;
+                     //   ismiddle = false;
                       });
                     }
                   },
                   controller: boardcontroller,
                   itemBuilder: (context, index) =>
-                      buildBoarditem(boarding[index]),
+                      buildBoarditem(boarding[index],context),
                   itemCount: boarding.length,
                 ),
               ),
-              const SizedBox(
-                height: 40,
+               SizedBox(
+                height: MediaQuery.of(context).size.height/14,
               ),
               Row(
                 children: [
@@ -105,13 +107,15 @@ class _OnBoardingState extends State<OnBoarding> {
                      animationDuration: 1000,
                      radius: 40,
                      lineWidth: 6,
-                     percent: islast? 1 : !ismiddle? .4 :.7,
-                     progressColor:islast? Colors.pink[800] : !ismiddle? Colors.pink[400] :Colors.pink[600],
+                     percent: islast? 1 :.5,
+                      //!ismiddle? .4
+                      
+                     progressColor:islast? Colors.pink[800]:Colors.pink[600],
                      //backgroundColor: ,
                      circularStrokeCap: CircularStrokeCap.round,
                      center: Container(
-                       height: 65,
-                       width: 65,
+                       height: 53.h,
+                       width: 60.w,
                        decoration: const BoxDecoration(
                          color: Colors.pink,
                          shape: BoxShape.circle,
@@ -121,7 +125,7 @@ class _OnBoardingState extends State<OnBoarding> {
                          backgroundColor: Colors.pink,
                          onPressed: () {
                            if (islast) {
-                             NavigateTo(context, RegisOrSkip());
+                             NavigateTo(context, const RegisOrSkip());
                              // submit;
                            } else {
                              boardcontroller.nextPage(

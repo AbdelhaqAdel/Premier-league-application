@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../data/models/data_model.dart';
 
-Widget buildBoarditem(boardingModel model) => Column(
+Widget buildBoarditem(boardingModel model,context) => Column(
   crossAxisAlignment: CrossAxisAlignment.start,
   children: [
     Expanded(
@@ -9,30 +10,27 @@ Widget buildBoarditem(boardingModel model) => Column(
         image: AssetImage(model.image),
       ),
     ),
-    const SizedBox(
-      height: 20,
+     SizedBox(
+      height: MediaQuery.of(context).size.height/22,
     ),
     Text(
       model.title,
-      style: const TextStyle(
+      style:  TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.bold,
-        fontSize: 24,
+        fontSize: 22.sp,
       ),
     ),
-    const SizedBox(
-      height: 20,
+     SizedBox(
+      height: MediaQuery.of(context).size.height/35,
     ),
     Text(
       model.body,
-      style: const TextStyle(
+      style:  TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.bold,
-        fontSize: 14,
+        fontSize: 14.sp,
       ),
-    ),
-    const SizedBox(
-      height: 20,
     ),
   ],
 );

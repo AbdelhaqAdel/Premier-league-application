@@ -13,7 +13,7 @@ class MatchesResultListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context ,index)=>matchsResult(matchesResult![index],context),
-        separatorBuilder: (context, index) => SizedBox(width: 15,),
+        separatorBuilder: (context, index) => const SizedBox(width: 15,),
         itemCount: matchesResult!.length);
   }
 }
