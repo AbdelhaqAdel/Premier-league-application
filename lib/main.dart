@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:premleague/Clean_arch/Core/Utils/Constants.dart';
 import 'package:premleague/Clean_arch/Core/Utils/Strings/app_text.dart';
 import 'package:premleague/Clean_arch/Core/Utils/git_it/standing_table_locator.dart';
+import 'package:premleague/Clean_arch/Core/local/cache_helper.dart';
+import 'package:premleague/Clean_arch/Features/Login/presentation/pages/UserLogin.dart';
 import 'package:premleague/Clean_arch/Features/on_boarding/presentation/pages/onBoardingScreen.dart';
+import 'package:premleague/Clean_arch/premier.dart';
 import 'package:premleague/bloc_observer.dart';
 import 'package:premleague/Clean_arch/Core/remote/DioHelper.dart';
 import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cubit_cubit.dart';
@@ -20,18 +24,26 @@ Future<void> main() async {
    setupLocator();
   await Hive.initFlutter();
   Hive.registerAdapter(MatchesResultEntityAdapter());
-  await Hive.openBox<MatchesResultEntity>(AppText.matchesResultBox).then((value){print('allCoursesBox4  box is opened ');}).catchError((error){
-    print('allCoursesBox4  box is already opened ');
+  await Hive.openBox<MatchesResultEntity>(AppText.matchesResultBox)
+  .then((value){print('${AppText.matchesResultBox}  box is opened ');}).catchError((error){
+    print('${AppText.matchesResultBox}  box is already opened ');
   });
 
 
 
-//   await CacheHelper.init();
-//  Token =CacheHelper.getAllData(key: 'token');
+  await CacheHelper.init();
+ userToken =CacheHelper.getData(key: 'token');
+ print('user token is ---- $userToken');
+
+ if(userToken!=null){
+  startWidget=Premleague();
+ }else{
+  startWidget= OnBoarding();
+ }
+ print(startWidget.toString());
  // bool? isDark = CacheHelper.getAllData(key: 'isDark');
 
- // print('token from main is ${Token}' );
- // Token = CacheHelper.getAllData(key: 'token');
+ print('token from main is $userToken' );
   /*bool? onBoarding =CacheHelper.getAllData(key: 'onBoarding');
   print(onBoarding);*/
 
@@ -41,7 +53,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   // const MyApp({super.key});
 
-  MyApp();
+  const MyApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -60,11 +72,11 @@ class MyApp extends StatelessWidget {
           splitScreenMode: true,
           builder: (_ , child) {
           return MaterialApp(
-            initialRoute:Routes.initialRoute,
+           // initialRoute:Routes.initialRoute,
             routes: allRoutes,
             theme:appTheme,
             debugShowCheckedModeBanner: false,
-            home: OnBoarding(),
+            home: startWidget!,
           );
           }
           );
