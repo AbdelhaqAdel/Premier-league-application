@@ -42,7 +42,7 @@ class _OnBoardingState extends State<OnBoarding> {
           defaultTextButton(
             Color: Colors.pink,
             function: () {
-              NavigateTo(context, RegisOrSkip());
+              navigateTo(context, RegisOrSkip());
             },
             text: 'Skip',
             size: 15,
@@ -125,7 +125,7 @@ class _OnBoardingState extends State<OnBoarding> {
                          backgroundColor: Colors.pink,
                          onPressed: () {
                            if (islast) {
-                             NavigateTo(context, const RegisOrSkip());
+                             navigateTo(context, const RegisOrSkip());
                              // submit;
                            } else {
                              boardcontroller.nextPage(

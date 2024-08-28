@@ -91,7 +91,7 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
                                               child: GestureDetector(
                                                 onTap: (){
                                                   cubit.changeVideos(index);
-                                                  NavigateTo(context, const HomePage());
+                                                  navigateTo(context, const HomePage());
                                                 },
                                                 child: buildVideosItem(
                                                     videosList[index], context,index),

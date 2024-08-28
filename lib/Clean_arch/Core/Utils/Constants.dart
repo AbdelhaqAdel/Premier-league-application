@@ -1,13 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:premleague/Clean_arch/Core/Utils/components.dart';
 
 import '../../Features/Login/presentation/pages/UserLogin.dart';
 
-String? Token;
+String? userToken;
+Widget? startWidget;
 
 String? ss;
-void LogoOut(context){
-  Token=null;
-  NavigationAndFinish(context, UserLogin());
+void logOut(context){
+  userToken=null;
+  navigateAndFinish(context, UserLogin());
   // CachHelper.removedata(key: 'token').then((value)
   // {
   //   if(value==true){
