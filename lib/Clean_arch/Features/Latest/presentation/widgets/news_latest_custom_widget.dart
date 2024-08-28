@@ -7,7 +7,7 @@ import '../pages/LatestScreens/AllnewsScreen.dart';
 
 Widget buildArticleItem(Map newsList, context) => GestureDetector(
   onTap: () {
-    NavigateTo(context, AllNewsScreen());
+    navigateTo(context, AllNewsScreen());
   },
   child: ClipRRect(
     child: BackdropFilter(

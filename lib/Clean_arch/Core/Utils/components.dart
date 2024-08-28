@@ -153,7 +153,7 @@ Widget ArticleBuilder(list,context)=>ConditionalBuilder(
       itemCount: 10),
     fallback:(context) =>Center(child: CircularProgressIndicator()),);
 */
-void NavigateTo(context,Widget)=>
+void navigateTo(context,Widget)=>
     Navigator.push(
   context, 
 MaterialPageRoute(
@@ -162,7 +162,7 @@ MaterialPageRoute(
  );
 
 
-void NavigationAndFinish(context,Widget)=>Navigator.pushAndRemoveUntil(context, 
+void navigateAndFinish(context,Widget)=>Navigator.pushAndRemoveUntil(context, 
 MaterialPageRoute(
   builder: (context)=>Widget,
 ),

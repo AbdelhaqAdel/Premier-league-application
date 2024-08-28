@@ -33,7 +33,7 @@ class UserRegister extends StatelessWidget {
               // SharedPreferences sharedPreferences=SharedPreferences.getInstance();
               // sharedPreferences.setString('token',state.loginmodel.data!.token! );
               // print(sharedPreferences.get('token'));
-              NavigationAndFinish(context, SelectBestTeamScreen());
+              navigateAndFinish(context, SelectBestTeamScreen());
               Fluttertoast.showToast(
                   msg: state.userModel.message!,
                   toastLength: Toast.LENGTH_SHORT,

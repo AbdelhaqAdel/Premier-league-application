@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:core';
 import 'dart:core';
 
 class LoginModel{
@@ -7,7 +5,7 @@ class LoginModel{
   String? message;
   UserData? data;
   LoginModel.fromJson(Map<String,dynamic> json){
-    status = json['status'];
+    status = json['status']??'';
     message = json['message'];
     data = json['data']!=null ? UserData.fromJson(json['data']) :null;
   }

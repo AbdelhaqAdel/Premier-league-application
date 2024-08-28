@@ -29,11 +29,11 @@ class UserLogin extends StatelessWidget {
             PremCubitCubit.get(context).tokenn=state.loginmodel.data?.token;
             print('/////////////////////');
             print('token is  ${state.loginmodel.data?.token}');
-             CacheHelper.savaData(key: 'token', value: state.loginmodel.data?.token);
+             CacheHelper.saveData(key: 'token', value: state.loginmodel.data?.token);
              print('///////////////////////');
-             Token=CacheHelper.getAllData(key:'token');
-             print('Token is :::${Token}');
-            NavigationAndFinish(context, premleague());
+             userToken=CacheHelper.getData(key:'token');
+             print('Token is :::$userToken');
+            navigateAndFinish(context, const Premleague());
             Fluttertoast.showToast(
                 msg: state.loginmodel.message!,
                 toastLength: Toast.LENGTH_SHORT,
@@ -164,7 +164,7 @@ class UserLogin extends StatelessWidget {
                             defaultTextButton(
                                 function: () {
                                   print(PremCubitCubit().isLogin);
-                                  NavigateTo(context, UserRegister());
+                                  navigateTo(context, UserRegister());
                                 },
                                 text: 'Register now',
                                 Color: Colors.blue),

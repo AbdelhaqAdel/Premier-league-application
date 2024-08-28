@@ -28,8 +28,8 @@ class PremCubitCubit extends Cubit<PremCubitState> {
   bool isLiverSelected=true;
   String? tokenn;
   String?regTokenn;
-  String? selectedImage;
-  String?selectedTeamName;
+  String? selectedImage='';
+  String selectedTeamName='not selcted';
   List<BottomNavigationBarItem>bottomItems=[
     const BottomNavigationBarItem(
       icon: Icon(Icons.article_outlined),

@@ -117,7 +117,7 @@ class UserProfile extends StatelessWidget {
                         height: 60,
                         color: Colors.blue,
                         child: TextButton(onPressed:(){
-                          LogoOut(context);
+                          logOut(context);
                         }, child: Text('Logout',
                           style: TextStyle(
                             fontSize: 20,

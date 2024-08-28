@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:premleague/Clean_arch/Core/Utils/Constants.dart';
+import 'package:premleague/Clean_arch/Features/Login/presentation/pages/UserLogin.dart';
 import 'package:premleague/Clean_arch/Features/Register/presentation/pages/SelectFavTeamScreen.dart';
 import '../../../Profile/presentation/pages/UserProfile.dart';
 import '../../../Register/presentation/pages/UserRegister.dart';
@@ -47,7 +50,7 @@ class Settings extends StatelessWidget {
                         //print(CacheHelper.getAllData(key: 'token'));
                         print(cubit.isLogin);
                         cubit.getUserProfile(token: cubit.tokenn);
-                        NavigateTo(context, cubit.isLogin?UserProfile():UserRegister());
+                        navigateTo(context, cubit.isLogin?UserProfile():UserRegister());
 
                       },
                       child: const Row(
@@ -123,7 +126,7 @@ class Settings extends StatelessWidget {
                       height: 50,
                       child: GestureDetector(
                         onTap: (){
-                          NavigateTo(context, SelectBestTeamScreen());
+                          navigateTo(context, SelectBestTeamScreen());
                         },
                         child: Row(
                           children: [
@@ -131,7 +134,7 @@ class Settings extends StatelessWidget {
                               'your best team',
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
-                            Spacer(),
+                            const Spacer(),
                             /* IconButton(
                               onPressed: (){
                                 appcubit.get(context).changeAppMode();
@@ -227,11 +230,11 @@ class Settings extends StatelessWidget {
                               child:  Container(
                                 height: 30,
                                 width: 30,
-                                child: Image.network('https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46760/white-question-mark-emoji-clipart-md.png'),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                 //    color: Colors.red,
                                   ),
+                                child: Image.network('https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46760/white-question-mark-emoji-clipart-md.png'),
                               )
                             ),
                           ),
@@ -271,6 +274,24 @@ class Settings extends StatelessWidget {
 
                         ],
                       ),
+                    ),
+                  ),
+                     myDevider(),
+
+                       Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: GestureDetector(
+                      onTap: (){
+                       logOut(context);
+                      },
+                      child:
+                           Text('Logout',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.sp,
+                          ),
+                          ),
+                        
                     ),
                   ),
                 ],
