@@ -11,8 +11,8 @@ import 'package:premleague/modules/archived_tasks/premleague/cubit/cubit/prem_cu
 
 import 'Core/Utils/Constants.dart';
 
-class premleague extends StatelessWidget {
-  const premleague({super.key});
+class Premleague extends StatelessWidget {
+  const Premleague({super.key});
 
   @override
   Widget build(BuildContext context) {

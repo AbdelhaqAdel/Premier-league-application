@@ -19,7 +19,7 @@ class Routes {
 
 final allRoutes ={
   Routes.initialRoute: (context)=>OnBoarding(),
-  Routes.layout: (context)=>const premleague(),
+  Routes.layout: (context)=>const Premleague(),
   Routes.scorer: (context)=>const ScorersScreen(),
   Routes.assist: (context)=> AssitsScreen(),
   Routes.goals: (context)=> TeamsGoal(),

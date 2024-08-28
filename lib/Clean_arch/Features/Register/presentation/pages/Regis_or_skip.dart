@@ -30,7 +30,7 @@ class RegisOrSkip extends StatelessWidget {
             padding: const EdgeInsets.only(
                 top: 5, right: 8.0, left: 8, bottom: 8),
             child: GestureDetector(
-              onTap: (){NavigateTo(context, UserLogin());},
+              onTap: (){navigateTo(context, UserLogin());},
               child: Container(
                 height:  40.h,
                 width: double.infinity,
@@ -51,7 +51,7 @@ class RegisOrSkip extends StatelessWidget {
             padding: const EdgeInsets.only(
                 top: 5, right: 8.0, left: 8, bottom: 8),
             child: GestureDetector(
-              onTap: (){NavigateTo(context, UserRegister());},
+              onTap: (){navigateTo(context, UserRegister());},
               child: Container(
                 height:  40.h,
                 width: double.infinity,
@@ -76,7 +76,7 @@ class RegisOrSkip extends StatelessWidget {
       
                 onTap: (){
                   PremCubitCubit.get(context).getStandingsData();
-                  NavigateTo(context, (const SelectBestTeamScreen()));
+                  navigateTo(context, (const SelectBestTeamScreen()));
                   },
                 child: Container(
                   height: 40.h,
