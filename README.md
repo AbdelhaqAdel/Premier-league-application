@@ -28,6 +28,6 @@ Select your favorite team to receive personalized updates, news, and match infor
 
 - **Flutter**: Cross-platform mobile app framework for creating a seamless user experience.
 - **Dart**: Programming language used for Flutter development.
-- **APIs**: External APIs used to fetch Premier League data such as news, match details, and statistics.
+- **APIs**: External Free APIs used to fetch Premier League data such as news, match details, and statistics.
 
 ![poster](./PL.png)
